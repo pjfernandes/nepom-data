@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  CPF: MyString
+  birth: 2021-11-05
+  license_number: MyString
+  doc_number: MyString
+  doc_type: MyString
+  image: MyString
+
+two:
+  name: MyString
+  CPF: MyString
+  birth: 2021-11-05
+  license_number: MyString
+  doc_number: MyString
+  doc_type: MyString
+  image: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_ini: 2021-11-05
+  date_fin: 2021-11-05
+  role: MyString
+  member: one
+  ship: one
+
+two:
+  date_ini: 2021-11-05
+  date_fin: 2021-11-05
+  role: MyString
+  member: two
+  ship: two

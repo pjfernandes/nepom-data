@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-11-05
+  time: 2021-11-05 16:33:58
+  latitude: 1.5
+  longitude: 1.5
+  ship_origin: MyString
+  ship_destination: MyString
+  type: 
+  user: one
+  ship: one
+
+two:
+  date: 2021-11-05
+  time: 2021-11-05 16:33:58
+  latitude: 1.5
+  longitude: 1.5
+  ship_origin: MyString
+  ship_destination: MyString
+  type: 
+  user: two
+  ship: two
