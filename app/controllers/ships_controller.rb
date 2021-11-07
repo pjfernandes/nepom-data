@@ -12,7 +12,7 @@ class ShipsController < ApplicationController
   end
 
   def create
-    @ship = Ship.new #(ship_params)
+    @ship = Ship.new(ship_params)
     @ship.save
 
     # no need for app/views/ships/create.html.erb
@@ -40,7 +40,7 @@ class ShipsController < ApplicationController
 
   private
 
-  # def ship_params
-  #   params.require(:ship).permit(:name, :registration, :registration_port, :photo)
-  # end
+  def ship_params
+    params.require(:ship).permit(:name, :registration, :registration_port, :photo)
+  end
 end
