@@ -25,7 +25,7 @@ class ShipsController < ApplicationController
 
   def update
     @ship = Ship.find(params[:id])
-    @ship.update #(ship_params)
+    @ship.update(ship_params)
 
     redirect_to ship_path(@ship)
   end
