@@ -1,1 +1,5 @@
 <h1>All Occurrences!!</h1>
+<% @occurrences.each do |occurrence| %>
+  <h5><%= occurrence.user%> </h5>
+  <h5><%= @ship.name%> </h5>
+<% end %>
