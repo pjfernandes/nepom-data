@@ -1,0 +1,23 @@
+<%= simple_form_for(@ship) do |f| %>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :registration %>
+    <br>
+    <%= f.text_field :registration %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :registration_port %>
+    <br>
+    <%= f.text_field :registration_port%>
+  </div>
+
+  <%= f.button :submit, "Salvar", class: "btn btn-success text-center" %>
+
+<% end %>

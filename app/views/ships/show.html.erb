@@ -1,0 +1,8 @@
+<h1 class="text-center">Embarcação <%= @ship.id %> </h1>
+<p><%= @ship.name %></p>
+<p><%= @ship.registration_port %></p>
+
+<%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-success m-4"%>
+<%= link_to "Deletar", ship_path(@ship), method: :delete, data: { confirm: "Está certo disso?" }, class: "btn btn-success m-4" %>
+<%=link_to "Lista de Embarcações", ships_path, class: "btn btn-success m-4"%>
+<%=link_to "Criar Associação", new_crew_path(@ship), class: "btn btn-success m-4"%>

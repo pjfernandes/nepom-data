@@ -1,0 +1,5 @@
+<h1>Crews</h1>
+
+<% @crews.each do |crew| %>
+  <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-success m-4"%>
+<%end%>

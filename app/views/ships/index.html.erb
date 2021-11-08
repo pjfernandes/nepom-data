@@ -1,0 +1,7 @@
+<h1>Lista de Embarcações</h1>
+
+<% @ships.each do |ship| %>
+  <%=link_to "#{ship.name}", ship_path(ship), class: "btn btn-success m-4"%>
+<%end%>
+
+<%=link_to "Criar Embarcação", new_ship_path, class: "btn btn-success m-4"%>
