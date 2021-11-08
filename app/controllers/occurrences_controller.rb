@@ -1,7 +1,7 @@
 class OccurrencesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: :index
-  # before_action :get_ship
+  # skip_before_action :authenticate_user!, only: :index
+  before_action :get_user
 
   def index
     @occurrences = Occurrence.all
@@ -34,7 +34,7 @@ class OccurrencesController < ApplicationController
 
   private
 
-  def get_ship
-    @ship = Ship.find(params[:ship_id])
+  def get_user
+    @user = User.find(params[:user_id])
   end
 end

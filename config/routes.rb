@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :ships, only: %i[index show new create edit update destroy] do
     resources :occurrences, only: :index
   end
+
+  resources :users do
+    resources :occurrences, only: :index
+  end
 end
