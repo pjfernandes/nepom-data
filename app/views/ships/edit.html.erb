@@ -23,6 +23,9 @@
 
     <div class="form-group justify-content-center">
       <%= f.input :photo, as: :file, label: "Foto" %>
+      <%= link_to 'Remover imagem', delete_image_attachment_ship_path(@ship),
+                method: :delete,
+                data: { confirm: 'Confirma a deleção da imagem?' } %>
     </div>
 
     <%= f.button :submit, "Editar", class: "btn btn-success text-center" %>
