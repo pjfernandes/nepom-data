@@ -13,3 +13,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.app-name {
+  text-shadow: 1px 1px 2px grey;
+}
