@@ -1,24 +1,52 @@
-<h2>Sign up</h2>
+<h2 class="text-center"><i class="fas fa-user-plus"></i> Registre-se</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
+    <div class="form-inputs">
+      <%= f.input :name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+                input_html: { autocomplete: "name" },
+                label: "Nome"%>
+
+        <%= f.input :matricula,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+                autofocus: true,
+                input_html: { autocomplete: "matricula" },
+                label: "Matrícula"%>
+
+        <%= f.input :cpf,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+                autofocus: true,
+                input_html: { autocomplete: "cpf" },
+                label: "CPF"%>
+
+        <%= f.input :lotacao,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "lotacao" },
+                label: "Lotação"%>
+
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "e-mail" }%>
+
+      <%= f.input :password,
+                  required: true,
+                  hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" },
+                label: "Senha"%>
+
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" },
+                label: "Confirme a senha"%>
+    </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Registrar", class:"btn btn-primary mb-2" %>
   </div>
 <% end %>
 

@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon m-6">
+
+  <div class="logo d-flex justify-content-between">
+    <div class="xepa text-left d-flex align-items-center">
+     <%= image_tag "logo_pf.svg",size:70%>
+     <h5 class="app-name"><strong> Base de Dados - NEPOM</strong></h5>
+
+    </div>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active d-flex justify-content-center">
+         <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown text-center">
+          <%= image_tag "user_icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Meu perfil", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item text-center">
+          <%= link_to "Entrar", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%# <%=link_to "Buy!", new_product_order_path(@product)%>

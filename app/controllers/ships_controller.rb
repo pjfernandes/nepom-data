@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+
   def index
     @ships = Ship.all
   end
@@ -30,10 +31,9 @@ class ShipsController < ApplicationController
     redirect_to ship_path(@ship)
   end
 
-   def destroy
+  def destroy
     @ship = Ship.find(params[:id])
     @ship.destroy
-
     # no need for app/views/ships/destroy.html.erb
     redirect_to ships_path
   end
