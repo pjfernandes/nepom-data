@@ -1,30 +1,29 @@
 class OccurrencesController < ApplicationController
 
   # skip_before_action :authenticate_user!, only: :index
-  before_action :get_user
+  # before_action :get_user, only: :create
 
   def index
     @occurrences = Occurrence.all
   end
 
-  # def show
+  def show
+    @occurrence = Occurrence.find(params[:id])
+  end
 
-  # end
+  def new
+    @occurrence = Occurrence.new
+  end
 
-  # def new
-  #   @occurrence = Occurrence.new
-  # end
-
-  # def create
-  #   @occurrence = Occurrence.new(occurrence_params)
-  #   @occurrence.ship = @ship
-  #   @occurrence.user = current_user
-  #   if @occurrence.save
-  #     redirect_to root
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @occurrence = Occurrence.new(occurrence_params)
+    @occurrence.user = current_user
+    if @occurrence.save
+      redirect_to user_occurrence_path(@occurrence), notice: 'Occurrence was successfully created!'
+    else
+      render :new
+    end
+  end
 
 
 
@@ -37,4 +36,10 @@ class OccurrencesController < ApplicationController
   def get_user
     @user = User.find(params[:user_id])
   end
+
+  private
+  def occurrence_params
+    params.require(:occurrence).permit(:ship_id)
+  end
+
 end
