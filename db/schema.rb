@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_11_07_151043) do
-=======
 ActiveRecord::Schema.define(version: 2021_11_08_192840) do
->>>>>>> origin/add-home
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
