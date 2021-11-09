@@ -1,11 +1,9 @@
 
-
 <%= simple_form_for [current_user, @occurrence] do |f| %>
   <%= f.input :date, label: 'Data', :order => [:day, :month, :year] %>
   <%=f.input :time, label: 'Hora', as: :string, input_html: { value: Time.now.strftime("%H:%M:%S") }%>
   <%=f.input :ship_id, label: 'Embarcação', placeholder: 'Embarcação'%>
   <%=f.input :ship_origin, label: 'Origem', placeholder: 'Origem'%>
   <%=f.input :ship_destination, label: 'Destino', placeholder: 'Destino'%>
-
   <%= f.submit %>
 <% end %>

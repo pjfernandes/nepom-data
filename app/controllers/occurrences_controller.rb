@@ -26,7 +26,6 @@ class OccurrencesController < ApplicationController
     end
   end
 
-
   private
 
   def get_user
