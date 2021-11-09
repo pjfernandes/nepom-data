@@ -31,7 +31,8 @@
       <div>
         <%= link_to 'Remover imagem', delete_image_attachment_ship_path(@ship),
                   method: :delete,
-                  data: { confirm: 'Confirma a deleção da imagem?' } %>
+                  data: { confirm: 'Confirma a remoção da imagem?' },
+                  class: "btn btn-danger m-4" %>
       </div>
     </div>
 
