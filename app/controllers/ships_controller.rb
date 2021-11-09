@@ -14,10 +14,14 @@ class ShipsController < ApplicationController
 
   def create
     @ship = Ship.new(ship_params)
-    @ship.save
+    # @ship.save
 
     # no need for app/views/ships/create.html.erb
-    redirect_to ship_path(@ship)
+    if @ship.save
+      redirect_to ship_path(@ship), notice: 'Embarcação criada com sucesso.'
+    else
+      render :new
+    end
   end
 
   def edit
