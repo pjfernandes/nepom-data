@@ -1,0 +1,11 @@
+<h1>Crews</h1>
+
+<% url = url_for(:back) %>
+<% n = url.index('/members/')+9 %>
+<% member_id = url[n..url.length].to_i %>
+
+<% @crews.each do |crew| %>
+  <% if crew.member_id == member_id %>
+    <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-success m-4"%>
+  <% end %>
+<%end%>

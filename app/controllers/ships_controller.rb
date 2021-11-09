@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+
   def index
     @ships = Ship.all
   end
@@ -35,6 +36,13 @@ class ShipsController < ApplicationController
     @ship = Ship.find(params[:id])
     @ship.destroy
     redirect_to ships_path
+  end
+
+  def delete_image_attachment
+    @ship = Ship.find(params[:id])
+    @ship.photo.purge
+    # redirect_to ship_path(@ship)
+    redirect_to edit_ship_path(@ship)
   end
 
   private

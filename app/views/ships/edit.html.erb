@@ -1,2 +1,7 @@
-<%= render "form", ship: @ship %>
-<%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
+<div class="container-form d-flex justify-content-center text-center">
+  <div class="form-new-product text-center w-40 h-100 p-3">
+    <%= render "form", ship: @ship %>
+    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
+  </div>
+</div>
+    
