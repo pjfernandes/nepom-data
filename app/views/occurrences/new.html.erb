@@ -1,1 +1,8 @@
 <div class="title text-center m-2"><h3>Criar ocorrência!</h3></div>
+
+<%= simple_form_for [current_user, @occurrence] do |f| %>
+  <%= f.input :date, placeholder: 'Date' %>
+  <%=f.input :ship_id, placeholder: 'Ship'%>
+  <%=f.input :time, as: :string, input_html: { value: Time.now.to_s[11..18] }%>
+  <%= f.submit %>
+<% end %>
