@@ -1,5 +1,4 @@
 class ShipsController < ApplicationController
-
   def index
     @ships = Ship.all
   end
@@ -12,7 +11,7 @@ class ShipsController < ApplicationController
     @ship = Ship.new(ship_params)
 
     if @ship.save
-      redirect_to ship_path(@ship), notice: 'ship was successfully created.'
+      redirect_to ship_path(@ship), notice: 'Ship was successfully created.'
     else
       render :new
     end
@@ -39,9 +38,8 @@ class ShipsController < ApplicationController
   end
 
   private
-  
-  def ship_params
-    params.require(:ship).permit(:name, :registration, :registration_port)
-  end
 
+  def ship_params
+    params.require(:ship).permit(:name, :registration, :registration_port, :photo)
+  end
 end

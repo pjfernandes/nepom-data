@@ -13,6 +13,7 @@
       <% @crew.member_id = Member.find(url[n..url.length].to_i).id %>
       <%= Member.find(@crew.member_id).name %>
     <% else %>
+
       <%= f.label :'Tripulante' %>
       <br>
       <%= f.collection_select :member_id,
@@ -21,6 +22,7 @@
         :name,
         include_blank: false
       %>
+    
     <% end %>    
   </div>
 
