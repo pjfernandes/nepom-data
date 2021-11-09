@@ -41,7 +41,8 @@ class ShipsController < ApplicationController
   def delete_image_attachment
     @ship = Ship.find(params[:id])
     @ship.photo.purge
-    redirect_to ship_path(@ship)
+    # redirect_to ship_path(@ship)
+    redirect_to edit_ship_path(@ship)
   end
 
   private
