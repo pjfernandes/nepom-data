@@ -29,9 +29,6 @@ function success(pos) {
   //console.log(coords);
 };
 
-
-
-
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };

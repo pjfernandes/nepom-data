@@ -1,13 +1,7 @@
 <div class="title text-center m-2"><h3>Criar ocorrência!</h3></div>
 
-<div id="coords"></div>
-
-
 <%= simple_form_for [current_user, @occurrence] do |f| %>
   <%= f.input :date, placeholder: 'Date' %>
-  <%# <%= f.input :latitude, required: true, autofocus: true, input_html: { :value => coordsArray, class: "myclass" } %>
-  <%# <%=f.input :latitude, placeholder: 'Latitude'%>
-  <%# <%=f.input :longitude, placeholder: 'Longitude'%>
   <%=f.input :ship_id, placeholder: 'Ship'%>
   <%= f.submit %>
 <% end %>
