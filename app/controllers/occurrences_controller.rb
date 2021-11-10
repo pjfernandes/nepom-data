@@ -6,6 +6,15 @@ class OccurrencesController < ApplicationController
 
   def index
     @occurrences = Occurrence.all
+
+     @markers = @occurrences.geocoded.map do |occurrence|
+        {
+          lat: occurrence.latitude,
+          lng: occurrence.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { occurrence: occurrence })
+        }
+    end
+
   end
 
   def show

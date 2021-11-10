@@ -4,5 +4,5 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-import { success } from '../packs/coordinates';
+//import { success } from '..//coordinates';
 //import { coordsArray } from '../packs/coordinates_array';
