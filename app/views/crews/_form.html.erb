@@ -1,19 +1,15 @@
-<%= simple_form_for(@crew) do |f| %>
+<%= simple_form_for [@member, @ship, @crew] do |f| %>
 
-  <% url = url_for(:back) %>
-
-  <div class="form-group justify-content-center">
-    <% if url.include? '/members/' %>
-      <%= f.label :'Tripulante:' %>
+  <% if @member != nil %>
+    <div class="form-group justify-content-center">
+      <%= f.label :'Tripulante' %>
       <br>
-
-      <% n = url.index('/members/')+9 %>
-      <%# <%= url[n..url.length].to_i %>
-
-      <% @crew.member_id = Member.find(url[n..url.length].to_i).id %>
+      <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
-    <% else %>
-
+      <br>
+    </div>
+  <% else %>
+    <div class="form-group justify-content-center">
       <%= f.label :'Tripulante' %>
       <br>
       <%= f.collection_select :member_id,
@@ -22,22 +18,21 @@
         :name,
         include_blank: false
       %>
-    
-    <% end %>    
-  </div>
+    </div>
+  <% end %>
 
-  <div class="form-group justify-content-center">
-    <% if url.include? '/ships/' %>
-      <%= f.label :'Embarcação:' %>
+  <% if @ship != nil %>
+ 
+    <div class="form-group justify-content-center">
+      <%= f.label :'Embarcação' %>
       <br>
-
-      <% n = url.index('/ships/')+7 %>
-      <%# <%= url[n..url.length].to_i %>
-
-      <% @crew.ship_id = Ship.find(url[n..url.length].to_i).id %>
+      <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
-    <% else %>
-      <%= f.label :'Embarcação:' %>
+      <br>
+    </div>
+  <% else %>
+     <div class="form-group justify-content-center">
+      <%= f.label :'Embarcação' %>
       <br>
       <%= f.collection_select :ship_id,
         Ship.order(:name),
@@ -45,11 +40,9 @@
         :name,
         include_blank: false
       %>
-    <% end %>    
-  </div>
+    </div>
+  <% end %>
 
-    
-  
   <div class="form-group justify-content-center">
     <%= f.label :'Data Inicial' %>
     <br>

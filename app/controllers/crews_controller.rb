@@ -3,18 +3,45 @@ class CrewsController < ApplicationController
 
   def index
     @crews = Crew.all
+    if params[:member_id] != nil
+      @member = Member.find(params[:member_id])
+    end
+    if params[:ship_id] != nil
+      @ship = Ship.find(params[:ship_id])
+    end
   end
 
   def new
     @crew = Crew.new()
+
+    if params[:member_id] != nil
+      @member = Member.find(params[:member_id])
+    end
+    if params[:ship_id] != nil
+      @ship = Ship.find(params[:ship_id])
+    end
   end
 
   def create
     
     @crew = Crew.new(crew_params)
     
+    if params[:member_id] != nil
+      @member = Member.find(params[:member_id])
+      @crew.member_id = @member.id
+    end
+    if params[:ship_id] != nil
+      @ship = Ship.find(params[:ship_id])
+      @crew.ship_id = @ship.id
+    end   
+
     if @crew.save
-      redirect_to crew_path(@crew), notice: 'Crew was successfully created'
+      if params[:member_id] != nil
+        redirect_to member_crews_path(@member), notice: 'Crew was successfully created'
+      end
+      if params[:ship_id] != nil
+        redirect_to ship_crews_path(@ship), notice: 'Crew was successfully created'
+      end      
     else
       render :new
     end
@@ -36,8 +63,9 @@ class CrewsController < ApplicationController
 
   def destroy
     @crew = Crew.find(params[:id])
+    @member = Member.find(@crew.member_id)
     @crew.destroy
-    redirect_to crews_path
+    redirect_to member_crews_path(@member)
   end
   
   private

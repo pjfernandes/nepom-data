@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   end
 
   resources :members do
-    resources :crews
+    resources :crews, only: %i[new create index]
   end
+
+  resources :ships do
+    resources :crews, only: %i[new create index]
+  end
+
+  resources :crews, only: %i[index show edit update delete]
+  
 end

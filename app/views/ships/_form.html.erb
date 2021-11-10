@@ -26,12 +26,12 @@
           <i class="fas fa-file-upload upload"></i>
         <%end%>
       </div>
-      <div>
+      <%# <div>
         <%= link_to 'Remover imagem', delete_image_attachment_ship_path(@ship),
                   method: :delete,
                   data: { confirm: 'Confirma a remoção da imagem?' },
                   class: "btn btn-danger m-4" %>
-      </div>
+      <%# </div> %>
     </div>
 
 
@@ -39,6 +39,6 @@
       <%= f.input :photo, as: :file, label: "Foto" %>
     </div>
 
-    <%= f.button :submit, "Editar", class: "btn btn-success text-center" %>
-    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
+    <%= f.button :submit, "Salvar", class: "btn btn-success text-center" %>
+    <%# <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
    <% end %>

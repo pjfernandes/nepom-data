@@ -1,5 +1,14 @@
 <h1>Crews</h1>
 
 <% @crews.each do |crew| %>
-  <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-success m-4"%>
+  <% if params[:member_id] != nil %>
+    <% if crew.member_id == @member.id %>
+      <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-success m-4"%>
+    <% end %>
+  <% end %>
+  <% if params[:ship_id] != nil %>
+    <% if crew.ship_id == @ship.id %>
+      <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-success m-4"%>
+    <% end %>
+  <% end %>  
 <%end%>
