@@ -1,23 +1,26 @@
 <h1 class="text-center"><%= @ship.name %></h1>
 
-<div class="container-form text-center d-flex justify-content-center p-4">
-  <div class="form-login text-center mr-1">
+<div class="card-product d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+<%# <div class="container-form text-center d-flex justify-content-center p-4">
+  <div class="form-login text-center mr-1"> %>
     <% if @ship.photo.attached? %>
       <%= cl_image_tag @ship.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
     <%else%>
       <i class="fas fa-file-upload upload"></i>
     <%end%>
-  </div>
-  <div class="form-login text-center">
-    <p>Registro: <%=@ship.registration%> </p>
-    <p>Porto de Registro: <%=@ship.registration_port%></p>
+  <%# <div class="form-login text-left align-items-center"> %>
+    <div class="product-description ml-2 p-2 text-left align-items-center">
+      <p>Registro: <%=@ship.registration%> </p>
+      <p>Porto de Registro: <%=@ship.registration_port%></p>
+    </div>
   </div>
 </div>
 
 <div class="text-center">
-  <%=link_to "Voltar", ships_path, class: "btn btn-success m-4"%>
-  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger m-4"%>
-  <%=link_to "Criar Tripulação para esta Embarcação", new_ship_crew_path(@ship), class: "btn btn-success m-4"%>
-  <%=link_to "Lista de Tripulações da Embarcação", ship_crews_path(@ship), class: "btn btn-success m-4"%>
+  <%=link_to "Voltar", ships_path, class: "btn btn-danger btn-lg"%>
+  <%=link_to "Editar", edit_ship_path(@ship), class: "btn-primary btn-lg"%>
+  <%=link_to "Criar Tripulação para esta Embarcação", new_ship_crew_path(@ship), class: "btn-primary btn-lg"%>
+  <%=link_to "Lista de Tripulações da Embarcação", ship_crews_path(@ship), class: "btn-primary btn-lg"%>
   <%#=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
 </div>

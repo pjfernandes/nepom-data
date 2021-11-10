@@ -23,6 +23,6 @@
   <% @ships.each do |ship| %>
     <h4>Nome: <%= ship.name %></h4>
     <p>Registro: <%= ship.registration %></p>
-    <%=link_to "Detalhes", ship_path(ship), class: "btn btn-success m-4"%>
+    <%=link_to "Detalhes", ship_path(ship), class: "btn btn-primary m-4"%>
   <% end %>
 </div>
