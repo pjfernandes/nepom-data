@@ -11,18 +11,13 @@
   <div class="form-login text-center">
     <p>Registro: <%=@ship.registration%> </p>
     <p>Porto de Registro: <%=@ship.registration_port%></p>
-    <div>
-      <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger m-4"%>
-      <%#=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
-      <%=link_to "Voltar Lista de Embarcações", ships_path, class: "btn btn-success m-4"%>
-      <%=link_to "Criar Tripulação para esta Embarcação", new_ship_crew_path(@ship), class: "btn btn-success m-4"%>
-      <%=link_to "Lista de Tripulações da Embarcação", ship_crews_path(@ship), class: "btn btn-success m-4"%>
-    </div>
   </div>
 </div>
 
 <div class="text-center">
   <%=link_to "Voltar", ships_path, class: "btn btn-success m-4"%>
   <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger m-4"%>
-  <%=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
+  <%=link_to "Criar Tripulação para esta Embarcação", new_ship_crew_path(@ship), class: "btn btn-success m-4"%>
+  <%=link_to "Lista de Tripulações da Embarcação", ship_crews_path(@ship), class: "btn btn-success m-4"%>
+  <%#=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
 </div>
