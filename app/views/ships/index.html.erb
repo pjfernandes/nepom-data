@@ -20,12 +20,9 @@
 
 
 <div>
-  <%# <% if query.present? %>
-    <% @ships.each do |ship| %>
-      <h4>Nome: <%= ship.name %></h4>
-      <p>Registro: <%= ship.registration %></p>
+  <% @ships.each do |ship| %>
+    <h4>Nome: <%= ship.name %></h4>
+    <p>Registro: <%= ship.registration %></p>
     <%=link_to "Detalhes", ship_path(ship), class: "btn btn-success m-4"%>
-    <% end %>
-  <%# <% else %>
-    <%# <%= return "" %>
+  <% end %>
 </div>

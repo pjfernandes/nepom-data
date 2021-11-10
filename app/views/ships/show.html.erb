@@ -1,7 +1,7 @@
 <h1 class="text-center"><%= @ship.name %></h1>
 
 <div class="container-form text-center d-flex justify-content-center p-4">
-  <div class="text-center mr-1 pb-2">
+  <div class="form-login text-center mr-1">
     <% if @ship.photo.attached? %>
       <%= cl_image_tag @ship.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
     <%else%>
@@ -11,9 +11,11 @@
   <div class="form-login text-center">
     <p>Registro: <%=@ship.registration%> </p>
     <p>Porto de Registro: <%=@ship.registration_port%></p>
-    <div>
-      <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger m-4"%>
-      <%=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
-    </div>
   </div>
+</div>
+
+<div class="text-center">
+  <%=link_to "Voltar", ships_path, class: "btn btn-success m-4"%>
+  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger m-4"%>
+  <%=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
 </div>
