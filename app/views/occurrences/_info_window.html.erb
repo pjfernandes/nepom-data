@@ -1,1 +1,10 @@
-<h1>Detalhes</h1>
+<div class="text-left">
+  <% occurrences = Occurrence.where(user_id: current_user) %>
+  <%occurrences.each do |occurrence|%>
+    <p><strong>Data:</strong> <%=occurrence.date %><p>
+    <p><strong>Horário:</strong> <%=occurrence.time.to_s(10..18) %><p>
+    <p><strong>Embarcação:</strong> <%=occurrence.ship_id %><p>
+    <p><strong>Origem:</strong> <%=occurrence.ship_origin %><p>
+    <p><strong>Destino:</strong> <%=occurrence.ship_destination %><p>
+  <%end%>
+</div>
