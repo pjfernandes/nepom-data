@@ -1,7 +1,42 @@
+<h2 class="text-center"><i class="fas fa-paste"></i> Editar embarcação</h2>
+
 <div class="container-form d-flex justify-content-center text-center">
   <div class="form-new-product text-center w-40 h-100 p-3">
-    <%= render "form", ship: @ship %>
-    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
-  </div>
-</div>
-    
+    <%= simple_form_for(@ship) do |f| %>
+
+    <div class="form-group justify-content-center">
+      <%= f.input :name, label: "Nome" %>
+    </div>
+
+    <div class="form-group justify-content-center">
+      <%= f.input :registration, label: "Registro" %>
+    </div>
+
+    <div class="form-group justify-content-center">
+      <%= f.input :registration_port, label: "Porto de registro" %>
+    </div>
+
+    <div class="text-center mr-1 pb-2">
+      <div>
+        <% if @ship.photo.attached? %>
+          <%= cl_image_tag @ship.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
+        <%else%>
+          <i class="fas fa-file-upload upload"></i>
+        <%end%>
+      </div>
+      <div>
+        <%= link_to 'Remover imagem', delete_image_attachment_ship_path(@ship),
+                  method: :delete,
+                  data: { confirm: 'Confirma a remoção da imagem?' },
+                  class: "btn btn-danger m-4" %>
+      </div>
+    </div>
+
+
+    <div class="form-group justify-content-center">
+      <%= f.input :photo, as: :file, label: "Foto" %>
+    </div>
+
+    <%= f.button :submit, "Editar", class: "btn btn-danger text-center" %>
+    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-success m-4"%>
+   <% end %>

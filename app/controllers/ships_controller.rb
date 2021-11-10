@@ -1,7 +1,12 @@
 class ShipsController < ApplicationController
 
   def index
-    @ships = Ship.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR registration ILIKE :query"
+      @ships = Ship.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @ships = Ship.last(10)
+    end
   end
 
   def new
@@ -10,14 +15,14 @@ class ShipsController < ApplicationController
 
   def create
     @ship = Ship.new(ship_params)
-
+    
     if @ship.save
-      redirect_to ship_path(@ship), notice: 'Ship was successfully created.'
+      redirect_to ship_path(@ship), notice: 'Embarcação criada com sucesso.'
     else
       render :new
     end
   end
-
+  
   def show
     @ship = Ship.find(params[:id])
   end
