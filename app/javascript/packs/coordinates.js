@@ -9,9 +9,9 @@ function success(pos) {
         coords = [pos.coords.latitude, pos.coords.longitude];
         // const position = document.getElementById('coords');
         // position.insertAdjacentHTML('beforeend', `<p>${coords[0]} | ${coords[1]}</p>`);
-        const teste = document.getElementById('new_occurrence');
+  const teste = document.getElementById('new-form');
 
-  teste.insertAdjacentHTML('afterbegin', `<div class="form-group float optional occurrence_latitude">
+  teste.insertAdjacentHTML('beforeend', `<div class="form-group float optional occurrence_latitude">
                                                 <label class="float optional" for="occurrence_latitude">Latitude</label>
                                                 <input class="form-control numeric float optional" placeholder="Latitude"
                                                 type="text" step="any" name="occurrence[latitude]"
@@ -20,7 +20,7 @@ function success(pos) {
 
 
 
-  teste.insertAdjacentHTML('afterbegin', `<div class="form-group float optional occurrence_longitude">
+  teste.insertAdjacentHTML('beforeend', `<div class="form-group float optional occurrence_longitude">
                                                   <label class="float optional" for="occurrence_longitude">Longitude</label>
                                                   <input class="form-control numeric float optional" placeholder="Longitude"
                                                   type="text" step="any" name="occurrence[longitude]"
