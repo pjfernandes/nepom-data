@@ -5,7 +5,7 @@ class ShipsController < ApplicationController
       sql_query = "name ILIKE :query OR registration ILIKE :query"
       @ships = Ship.where(sql_query, query: "%#{params[:query]}%")
     else
-      @ships = Ship.all
+      @ships = Ship.last(10)
     end
   end
 
