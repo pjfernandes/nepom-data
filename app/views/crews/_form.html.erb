@@ -1,5 +1,5 @@
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
-  <p class="w-100"><% if @member != nil %>
+  <% if @member != nil %>
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante'%>
       <br>
@@ -18,9 +18,9 @@
         include_blank: false
       %>
     <%# </div> %>
-  <% end %></p>
+  <% end %>
 
-  <p class="w-100"><% if @ship != nil %>
+  <% if @ship != nil %>
 
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Embarcação'%>
@@ -39,7 +39,7 @@
         :name,
         include_blank: false
       %>
-  </p>
+
 
   <% end %>
   <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
