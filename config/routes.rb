@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :occurrences, only: %i[index show]
 
   resources :members do
+    member do
+      delete :delete_image_attachment
+    end
     resources :crews, only: %i[new create index]
   end
 

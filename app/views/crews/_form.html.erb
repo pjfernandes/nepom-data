@@ -1,5 +1,4 @@
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
-  <div id="crew_ship_id">
   <% if @member != nil %>
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante' %>
@@ -32,7 +31,7 @@
     <%# </div> %>
   <% else %>
      <%# <div class="form-group justify-content-center"> %>
-      <%= f.label :'Embarcação' %>
+     <%= f.label :'Embarcação' %>
       <br>
       <%= f.collection_select :ship_id,
         Ship.order(:name),
@@ -40,7 +39,7 @@
         :name,
         include_blank: false
       %>
-    </div>
+
   <% end %>
   <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
   <%= f.input :date_fin, as: :date, label: "Data Final" %>
