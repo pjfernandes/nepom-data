@@ -1,0 +1,66 @@
+<%= simple_form_for [@member, @ship, @crew] do |f| %>
+
+  <% if @member != nil %>
+    <div class="form-group justify-content-center">
+      <%= f.label :'Tripulante' %>
+      <br>
+      <% @crew.member = @member %>
+      <%= Member.find(@crew.member_id).name %>
+      <br>
+    </div>
+  <% else %>
+    <div class="form-group justify-content-center">
+      <%= f.label :'Tripulante' %>
+      <br>
+      <%= f.collection_select :member_id,
+        Member.order(:name),
+        :id,
+        :name,
+        include_blank: false
+      %>
+    </div>
+  <% end %>
+
+  <% if @ship != nil %>
+ 
+    <div class="form-group justify-content-center">
+      <%= f.label :'Embarcação' %>
+      <br>
+      <% @crew.ship_id = @ship.id %>
+      <%= Ship.find(@crew.ship_id).name %>
+      <br>
+    </div>
+  <% else %>
+     <div class="form-group justify-content-center">
+      <%= f.label :'Embarcação' %>
+      <br>
+      <%= f.collection_select :ship_id,
+        Ship.order(:name),
+        :id,
+        :name,
+        include_blank: false
+      %>
+    </div>
+  <% end %>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :'Data Inicial' %>
+    <br>
+    <%= f.date_field :date_ini %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :'Data Final' %>
+    <br>
+    <%= f.date_field :date_fin %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label :Função %>
+    <br>
+    <%= f.text_field :role%>
+  </div>
+
+  <%= f.button :submit, "Salvar", class: "btn btn-success text-center" %>
+
+<% end %>

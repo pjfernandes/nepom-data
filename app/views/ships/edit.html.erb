@@ -1,23 +1,19 @@
+<h2 class="text-center"><i class="fas fa-paste"></i> Editar embarcação</h2>
+
 <div class="container-form d-flex justify-content-center text-center">
   <div class="form-new-product text-center w-40 h-100 p-3">
     <%= simple_form_for(@ship) do |f| %>
 
     <div class="form-group justify-content-center">
-      <%= f.label "Nome" %>
-      <br>
-      <%= f.text_field :name %>
+      <%= f.input :name, label: "Nome" %>
     </div>
 
     <div class="form-group justify-content-center">
-      <%= f.label "Registro" %>
-      <br>
-      <%= f.text_field :registration %>
+      <%= f.input :registration, label: "Registro" %>
     </div>
 
     <div class="form-group justify-content-center">
-      <%= f.label "Porto de registro" %>
-      <br>
-      <%= f.text_field :registration_port %>
+      <%= f.input :registration_port, label: "Porto de registro" %>
     </div>
 
     <div class="text-center mr-1 pb-2">
@@ -41,6 +37,7 @@
       <%= f.input :photo, as: :file, label: "Foto" %>
     </div>
 
-    <%= f.button :submit, "Editar", class: "btn btn-success text-center" %>
-    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger m-4"%>
+    <%= f.button :submit, "Editar", class: "btn btn-danger text-center" %>
+    
+    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-success m-4"%>
    <% end %>
