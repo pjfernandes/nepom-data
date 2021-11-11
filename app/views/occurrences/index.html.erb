@@ -1,7 +1,13 @@
-<h2 class="text-center"><i class="fas fa-paste"></i> Ocorrências</h2>
+<h2 class="text-center pb-2"><i class="fas fa-paste"></i> Ocorrências</h2>
 
-<% @occurrences.each do |occurrence| %>
-  <h5><%= occurrence.user.email%> </h5>
-  <h5><%= occurrence.ship.name%> </h5>
-<% end %>
-<%= link_to 'Criar ocorrência', new_user_occurrence_path %>
+<div id="map"
+     style="width: 100%; height: 420px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<%# <% @occurrences.each do |occurrence| %>
+  <%# <h5><%= occurrence.user.email </h5> %>
+  <%# <h5><%= occurrence.ship.name%>
+<%# <% end %>
+<%= link_to 'Criar ocorrência', new_user_occurrence_path, class:"btn btn-primary btn-lg mt-2" %>
+<%= link_to 'Voltar', :back, class:"btn btn-danger btn-lg mt-2 ml-2" %>
