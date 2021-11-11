@@ -9,12 +9,15 @@
 </div>
 
 <div class="container">
-  <div class="row d-flex justify-content-center text-dark">
+  <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-6">
       <% @occurrences.each do |occurrence| %>
         <div class="card p-3 mb-3">
-          <h5><%= occurrence.user.email%> </h5>
-          <h5><%= occurrence.ship.name%> </h5>
+          <div class="d-flex justify-content-between text-dark">
+            <h5><%= occurrence.id%> </h5>
+            <h5>Embarcação: <%= occurrence.ship.name%> </h5>
+            <h5>Data: <%= occurrence.date%> </h5>
+          </div>
           <%=link_to "Detalhes", user_occurrence_path(occurrence, occurrence.user.id), class: "btn btn-primary m-4"%>
         </div>
       <% end %>

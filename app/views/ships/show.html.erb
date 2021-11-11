@@ -7,7 +7,9 @@
     <% if @ship.photo.attached? %>
       <%= cl_image_tag @ship.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
     <%else%>
-      <i class="fas fa-file-upload upload"></i>
+    <div class="card-img-top p-3">
+      <i class="fas fa-file-upload upload cover"></i>
+    </div>
     <%end%>
 
   </div>
