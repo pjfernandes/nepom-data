@@ -13,7 +13,7 @@ const createCoords = () => {
       coords = [pos.coords.latitude, pos.coords.longitude];
 
       const position = document.getElementById('position');
-      position.insertAdjacentHTML('beforeend', `<p><i class="fas fa-map-marker-alt"></i> ${coords[1].toFixed(2)}°, ${coords[0].toFixed(2)}°</p>`);
+      position.insertAdjacentHTML('beforeend', `<p>${coords[1].toFixed(3)}°, ${coords[0].toFixed(3)}°</p>`);
 
       const teste = document.getElementById('new-form');
 
