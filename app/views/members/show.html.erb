@@ -1,10 +1,23 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i> Tripulante <%= @member.id %></h2>
 
-<div class="card p-4 mb-3 mt-3">
-  <div class="d-flex justify-content-between text-dark">
-    <p><%= @member.name %></p>
-    <p><%= @member.CPF %></p>
-    <p><%= @member.birth %></p>
+<div class="container-form text-center d-flex justify-content-center p-4">
+<div class="card">
+  <%# <div class="form-login text-center mr-1"> %>
+    <div class="d-flex justify-content-between">
+    <% if @member.photo.attached? %>
+      <%= cl_image_tag @member.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
+    <%else%>
+    <div class="card-img-top p-3">
+      <i class="fas fa-file-upload upload cover"></i>
+    </div>
+    <%end%>
+
+  </div>
+  <div class="form-login text-left p-4 text-dark">
+    <p><strong>Nome: </strong><%= @member.name%></p>
+    <p><strong>CPF: </strong><%= @member.CPF %></p>
+    <p><strong>Data de nascimento: </strong><%= @member.birth %></p>
+  </div>
   </div>
 </div>
 

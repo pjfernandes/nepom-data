@@ -22,8 +22,8 @@
       <% @ships.each do |ship| %>
         <div class="card p-3 mb-3">
           <div class="d-flex justify-content-between text-dark">
-          <h4>Nome: <%= ship.name %></h4>
-          <h4>Registro: <%= ship.registration %></h4>
+          <h4><strong> Nome: </strong> <%= ship.name %></h4>
+          <h4><strong>Registro: </strong><%= ship.registration %></h4>
           </div>
           <%=link_to "Detalhes", ship_path(ship), class: "btn btn-primary m-4"%>
         </div>

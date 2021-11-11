@@ -39,10 +39,17 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
+  def delete_image_attachment
+    @member = Member.find(params[:id])
+    @member.photo.purge
+    # redirect_to ship_path(@ship)
+    redirect_to edit_member_path(@member)
+  end
+
   private
 
   def member_params
-    params.require(:member).permit(:name, :CPF, :birth, :license_number, :doc_number, :doc_type)
+    params.require(:member).permit(:name, :CPF, :birth, :license_number, :doc_number, :doc_type, :photo)
   end
 
 end

@@ -1,14 +1,27 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i>TripuLação</h2>
 
-<% @crews.each do |crew| %>
-  <% if params[:member_id] != nil %>
-    <% if crew.member_id == @member.id %>
-      <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-primary m-4"%>
-    <% end %>
-  <% end %>
-  <% if params[:ship_id] != nil %>
-    <% if crew.ship_id == @ship.id %>
-      <%=link_to "#{crew.id}", crew_path(crew), class: "btn btn-primary m-4"%>
-    <% end %>
-  <% end %>
-<%end%>
+<%# <div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6"> %>
+    <div class="row d-flex justify-content-center">
+      <% @crews.each do |crew| %>
+        <div class="card p-3 mb-3 text-center col-6 ml-2">
+          <div class="d-flex justify-content-between text-dark align-items-center">
+          <% if params[:member_id] != nil %>
+            <% if crew.member_id == @member.id %>
+             <h5> <strong> Número:</strong> <%= crew.id %></h5>
+             <h5> <strong> Embarcação:</strong> <%= crew.ship.name %></h5>
+            <% end %>
+          <% end %>
+          <% if params[:ship_id] != nil %>
+            <% if crew.ship_id == @ship.id %>
+              <h5> <strong> Número:</strong><%= crew.id %></h5>
+            <% end %>
+        <% end %>
+      <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary m-4"%>
+      </div>
+      </div>
+      <%end%>
+    </div>
+  <%# </div>
+</div> %>
