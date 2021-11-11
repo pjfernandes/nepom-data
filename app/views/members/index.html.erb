@@ -11,7 +11,7 @@
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-6">
       <% @members.each do |member| %>
-        <div class="card p-3 mb-3">
+        <div class="card p-3 mb-3 text-dark">
           <h4>Nome: <%= member.name %></h4>
           <%=link_to "Detalhes", member_path(member), class: "btn btn-primary m-4"%>
         </div>
