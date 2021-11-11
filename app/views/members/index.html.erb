@@ -1,7 +1,21 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i> Lista de Tripulantes</h2>
 
-<% @members.each do |member| %>
-  <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
-<%end%>
+<%# <% @members.each do |member| %>
+  <%# <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
+<%# <%end%>
+<div class="text-center p-4">
+  <%=link_to "Criar Tripulante", new_member_path, class: "class: btn btn-primary btn-lg"%>
+</div>
 
-<%=link_to "Criar Tripulante", new_member_path, class: "btn-primary m-4"%>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6">
+      <% @members.each do |member| %>
+        <div class="card p-3 mb-3">
+          <h4>Nome: <%= member.name %></h4>
+          <%=link_to "Detalhes", member_path(member), class: "btn btn-primary m-4"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

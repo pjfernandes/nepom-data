@@ -35,7 +35,7 @@ class OccurrencesController < ApplicationController
 
   def occurrence_params
     params.require(:occurrence).permit(
-      :ship_id, :latitude, :longitude, :date, :time, :ship_origin, :ship_destination
+      :ship_id, :latitude, :longitude, :date, :time, :ship_origin, :ship_destination, :user_id
     )
   end
 

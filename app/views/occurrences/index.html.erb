@@ -1,7 +1,23 @@
 <h2 class="text-center"><i class="fas fa-paste"></i> Ocorrências</h2>
 
-<% @occurrences.each do |occurrence| %>
-  <h5><%= occurrence.user.email%> </h5>
-  <h5><%= occurrence.ship.name%> </h5>
-  <% end %>
-<%= link_to 'Criar ocorrência', new_user_occurrence_path, class: "btn btn-primary btn-lg" %>
+<%# <% @occurrences.each do |occurrence| %>
+  <%# <h5><%= occurrence.user.email%>
+  <%# <h5><%= occurrence.ship.name%>
+  <%# <% end %>
+<div class="text-center p-4">
+  <%= link_to 'Criar ocorrência', new_user_occurrence_path, class: "btn btn-primary btn-lg" %>
+</div>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6">
+      <% @occurrences.each do |occurrence| %>
+        <div class="card p-3 mb-3">
+          <h5><%= occurrence.user.email%> </h5>
+          <h5><%= occurrence.ship.name%> </h5>
+          <%=link_to "Detalhes", user_occurrence_path(occurrence, occurrence.user.id), class: "btn btn-primary m-4"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
