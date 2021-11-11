@@ -8,14 +8,29 @@
 
 
 puts 'Cleaning up database...'
+Occurrence.destroy_all
+Crew.destroy_all
 Ship.destroy_all
 Member.destroy_all
-Crew.destroy_all
-Occurrence.destroy_all
+User.destroy_all
 puts '<<<< Database cleaned >>>>'
 puts '------------------------'
 puts ''
-ships = Ship.create(
+users = User.create!(
+  [
+    { name: 'Pret', email: 'lc@lewagon.com', password: '123456' },
+    { name: 'Marcelo', email: 'marcelo@lewagon.com', password: '123456' },
+    { name: 'Pedro', email: 'pedro@lewagon.com', password: '123456' },
+    { name: 'Tati', email: 'tati@lewagon.com', password: '123456' }
+  ]
+)
+puts 'Creating users'
+users.each { |user| puts "#{user.name} created" }
+puts '4 users created'
+puts '------------------------'
+puts ''
+
+ships = Ship.create!(
   [
     { name: 'Pinta', registration: '23456', registration_port: 'Hamburg' },
     { name: 'Kontiki', registration: '23098', registration_port: 'Santos' },
@@ -27,6 +42,7 @@ ships = Ship.create(
 )
 puts 'Creating ships'
 ships.each { |ship| puts "#{ship.name} created" }
+puts '6 ships created'
 puts '------------------------'
 puts ''
 puts 'Creating members'
@@ -47,11 +63,11 @@ ships.each do |ship|
     date_ini = Faker::Date.between(from: '2019-01-01', to: '2021-11-09')
     date_fin = Faker::Date.between(from: date_ini.to_s, to: '2021-11-09')
     rand(5..10).times do
-      Crew.create(
+      Crew.create!(
         date_ini: date_ini,
         date_fin: date_fin,
-        member_id: members.sample,
-        ship_id: ship
+        member: members.sample,
+        ship: ship
       )
     end
   end
@@ -63,14 +79,14 @@ puts 'Creating occurrences'
 coordinates = [
   { lat: -20.322646, long: -40.281658 },
   { lat: -20.320973, long: -40.278057 },
-  { lat: -20.309944, long: -40.274634 },
+  { lat: -20.309944, long: -40.274634 }
 ]
 50.times do
   coordinate = coordinates.sample
-  Occurrence.create(
+  Occurrence.create!(
     date: Faker::Date.between(from: '2019-01-01', to: '2021-11-09'),
-    user_id: rand(1..2),
-    ship_id: ships.sample,
+    user: users.sample,
+    ship: ships.sample,
     latitude: coordinate[:lat],
     longitude: coordinate[:long]
   )
