@@ -9,5 +9,24 @@
   <%# <h5><%= occurrence.user.email </h5> %>
   <%# <h5><%= occurrence.ship.name%>
 <%# <% end %>
-<%= link_to 'Criar ocorrência', new_user_occurrence_path, class:"btn btn-primary btn-lg mt-2" %>
-<%= link_to 'Voltar', :back, class:"btn btn-danger btn-lg mt-2 ml-2" %>
+<div class="text-center p-4">
+  <%= link_to 'Criar ocorrência', new_user_occurrence_path, class:"btn btn-primary btn-lg mt-2 mb-4" %>
+  <%= link_to 'Voltar', :back, class:"btn btn-danger btn-lg mt-2 ml-2 mb-4" %>
+</div>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6">
+      <% @occurrences.each do |occurrence| %>
+        <div class="card p-3 mb-3">
+          <div class="d-flex justify-content-between text-dark">
+            <h5> <strong> Número:  </strong><%= occurrence.id%> </h5>
+            <h5> <strong>Embarcação: </strong><%= occurrence.ship.name%> </h5>
+            <h5> <strong>Data: </strong><%= occurrence.date%> </h5>
+          </div>
+          <%=link_to "Detalhes", user_occurrence_path(occurrence, occurrence.user.id), class: "btn btn-primary m-4"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

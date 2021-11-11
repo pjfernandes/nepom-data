@@ -1,15 +1,14 @@
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
-
   <% if @member != nil %>
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante' %>
       <br>
       <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
       <br>
-    </div>
+    <%# </div> %>
   <% else %>
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante' %>
       <br>
       <%= f.collection_select :member_id,
@@ -18,20 +17,20 @@
         :name,
         include_blank: false
       %>
-    </div>
+    <%# </div> %>
   <% end %>
 
   <% if @ship != nil %>
- 
-    <div class="form-group justify-content-center">
+
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Embarcação' %>
       <br>
       <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
       <br>
-    </div>
+    <%# </div> %>
   <% else %>
-     <div class="form-group justify-content-center">
+     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Embarcação' %>
       <br>
       <%= f.collection_select :ship_id,
@@ -40,27 +39,10 @@
         :name,
         include_blank: false
       %>
-    </div>
+    <%# </div> %>
   <% end %>
-
-  <div class="form-group justify-content-center">
-    <%= f.label :'Data Inicial' %>
-    <br>
-    <%= f.date_field :date_ini %>
-  </div>
-
-  <div class="form-group justify-content-center">
-    <%= f.label :'Data Final' %>
-    <br>
-    <%= f.date_field :date_fin %>
-  </div>
-
-  <div class="form-group justify-content-center">
-    <%= f.label :Função %>
-    <br>
-    <%= f.text_field :role%>
-  </div>
-
-  <%= f.button :submit, "Salvar", class: "btn btn-success text-center" %>
-
+  <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
+  <%= f.input :date_fin, as: :date, label: "Data Final" %>
+  <%= f.input :role, label: "Função" %>
+  <%= f.button :submit, "Salvar", class: "btn btn-primary text-center" %>
 <% end %>

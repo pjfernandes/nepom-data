@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_11_11_111247) do
     t.date "date_ini"
     t.date "date_fin"
     t.string "role"
-    t.bigint "member_id"
-    t.bigint "ship_id"
+    t.bigint "member_id", null: false
+    t.bigint "ship_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_crews_on_member_id"

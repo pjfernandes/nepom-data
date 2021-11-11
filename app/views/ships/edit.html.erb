@@ -1,20 +1,20 @@
-<h2 class="text-center"><i class="fas fa-paste"></i> Editar embarcação</h2>
+<h2 class="text-center"><i class="fas fa-ship"></i> Editar embarcação</h2>
 
-<div class="container-form d-flex justify-content-center text-center">
-  <div class="form-new-product text-center w-40 h-100 p-3">
+<%# <div class="container-form d-flex justify-content-center text-center">
+  <div class="form-new-product text-center w-40 h-100 p-3"> %>
     <%= simple_form_for(@ship) do |f| %>
 
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.input :name, label: "Nome" %>
-    </div>
+    <%# </div> %>
 
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.input :registration, label: "Registro" %>
-    </div>
+    <%# </div> %>
 
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.input :registration_port, label: "Porto de registro" %>
-    </div>
+    <%# </div> %>
 
     <div class="text-center mr-1 pb-2">
       <div>
@@ -28,16 +28,16 @@
         <%= link_to 'Remover imagem', delete_image_attachment_ship_path(@ship),
                   method: :delete,
                   data: { confirm: 'Confirma a remoção da imagem?' },
-                  class: "btn btn-danger m-4" %>
+                  class: "btn btn-primary m-4" %>
       </div>
     </div>
 
 
-    <div class="form-group justify-content-center">
+    <%# <div class="form-group justify-content-center"> %>
       <%= f.input :photo, as: :file, label: "Foto" %>
-    </div>
+    <%# </div> %>
 
-    <%= f.button :submit, "Editar", class: "btn btn-danger text-center" %>
-    
-    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-success m-4"%>
+    <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg text-center" %>
+
+    <%=link_to "Voltar", ship_path(@ship), class: "btn btn-danger btn-lg"%>
    <% end %>
