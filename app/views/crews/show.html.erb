@@ -4,27 +4,27 @@
   <div class="d-flex justify-content-between text-dark">
     <p>
   <% if @crew.member_id %>
-    Tripulante: <%= Member.find(@crew.member_id).name %>
+    <strong> Tripulante: </strong><%= Member.find(@crew.member_id).name %>
   <% end %>
 </p>
 <p>
   <% if @crew.ship_id %>
-    Embarcação: <%= Ship.find(@crew.ship_id).name %>
+    <strong>Embarcação: </strong><%= Ship.find(@crew.ship_id).name %>
   <% end %>
 </p>
 <p>
   <% if @crew.date_ini %>
-    Função: <%= @crew.date_ini %>
+    <strong>Data de início: </strong><%= @crew.date_ini %>
   <% end %>
 </p>
 <p>
   <% if @crew.date_fin %>
-    Função: <%= @crew.date_fin %>
+    <strong>Data final: </strong><%= @crew.date_fin %>
   <% end %>
 </p>
 <p>
   <% if @crew.role %>
-    Função: <%= @crew.role %>
+    <strong>Função: </strong><%= @crew.role %>
   <% end %>
 </p>
   </div>
