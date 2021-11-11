@@ -1,4 +1,5 @@
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
+  <div id="crew_ship_id">
   <% if @member != nil %>
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante' %>
@@ -39,7 +40,7 @@
         :name,
         include_blank: false
       %>
-    <%# </div> %>
+    </div>
   <% end %>
   <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
   <%= f.input :date_fin, as: :date, label: "Data Final" %>
