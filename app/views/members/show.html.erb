@@ -1,10 +1,10 @@
-<h1 class="text-center">Tripulante <%= @member.id %> </h1>
+<h2 class="text-center"><i class="fas fa-anchor"></i> Tripulante <%= @member.id %></h2>
 <p><%= @member.name %></p>
 <p><%= @member.CPF %></p>
 <p><%= @member.birth %></p>
 
-<%=link_to "Editar", edit_member_path(@member), class: "btn btn-success m-4"%>
+<%=link_to "Editar", edit_member_path(@member), class: "btn btn-primary  m-4"%>
 <%#= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Está certo disso?" }, class: "btn btn-success m-4" %>
-<%=link_to "Voltar Lista de Tripulantes Geral", members_path, class: "btn btn-success m-4"%>
-<%= link_to "Criar Tripulação para o Tripulante", new_member_crew_path(@member), class: "btn btn-success m-4" %>
-<%=link_to "Lista de Tripulações do Tripulante", member_crews_path(@member), class: "btn btn-success m-4"%>
+<%=link_to "Voltar Lista de Tripulantes Geral", members_path, class: "btn btn-danger m-4"%>
+<%= link_to "Criar Tripulação para o Tripulante", new_member_crew_path(@member), class: "btn btn-primary  m-4" %>
+<%=link_to "Lista de Tripulações do Tripulante", member_crews_path(@member), class: "btn btn-primary  m-4"%>

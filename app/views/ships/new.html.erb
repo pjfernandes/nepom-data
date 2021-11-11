@@ -1,27 +1,11 @@
-<h2 class="text-center"><i class="fas fa-paste"></i> Incluir embarcação</h2>
+<h2 class="text-center"><i class="fas fa-ship"></i> Incluir embarcação</h2>
 
-<div class="container-form d-flex justify-content-center text-center">
-  <div class="form-new-product text-center w-40 h-100 p-3">
+<%# <div class="container-form d-flex justify-content-center text-center">
+  <div class="form-new-product text-center w-40 h-100 p-3"> %>
     <%= simple_form_for(@ship) do |f| %>
-
-    <div class="form-group justify-content-center">
       <%= f.input :name, required: true, label: "Nome" %>
-    </div>
-
-    <div class="form-group justify-content-center">
       <%= f.input :registration, label: "Registro" %>
-    </div>
-
-    <div class="form-group justify-content-center">
       <%= f.input :registration_port, label: "Porto de registro" %>
-    </div>
-
-    <div class="form-group justify-content-center">
       <%= f.input :photo, as: :file, label: "Foto" %>
-    </div>
-
-    <%= f.button :submit, "Incluir", class: "btn btn-success text-center" %>
+      <%= f.button :submit, "Incluir", class: "btn btn-primary text-center" %>
    <% end %>
-
-  </div>
-</div>

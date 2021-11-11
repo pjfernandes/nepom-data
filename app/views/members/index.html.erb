@@ -1,7 +1,7 @@
-<h1>Lista de Tripulantes</h1>
+<h2 class="text-center"><i class="fas fa-anchor"></i> Lista de Tripulantes</h2>
 
 <% @members.each do |member| %>
-  <%=link_to "#{member.name}", member_path(member), class: "btn btn-success m-4"%>
+  <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
 <%end%>
 
-<%=link_to "Criar Tripulante", new_member_path, class: "btn btn-success m-4"%>
+<%=link_to "Criar Tripulante", new_member_path, class: "btn-primary m-4"%>
