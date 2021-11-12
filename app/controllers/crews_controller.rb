@@ -23,9 +23,9 @@ class CrewsController < ApplicationController
   end
 
   def create
-    
+
     @crew = Crew.new(crew_params)
-    
+
     if params[:member_id] != nil
       @member = Member.find(params[:member_id])
       @crew.member_id = @member.id
@@ -33,15 +33,16 @@ class CrewsController < ApplicationController
     if params[:ship_id] != nil
       @ship = Ship.find(params[:ship_id])
       @crew.ship_id = @ship.id
-    end   
+    end
 
     if @crew.save
       if params[:member_id] != nil
-        redirect_to member_crews_path(@member), notice: 'Crew was successfully created'
+        redirect_to member_crews_path(@member), notice: 'Tripulação criada'
       end
       if params[:ship_id] != nil
-        redirect_to ship_crews_path(@ship), notice: 'Crew was successfully created'
-      end      
+        redirect_to ship_path(@ship), notice: 'Tripulação criada'
+
+      end
     else
       render :new
     end
@@ -67,7 +68,7 @@ class CrewsController < ApplicationController
     @crew.destroy
     redirect_to member_crews_path(@member)
   end
-  
+
   private
 
   def crew_params

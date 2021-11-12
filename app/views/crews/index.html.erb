@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i>TripuLação</h2>
+<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulação</h2>
 
 <%# <div class="container">
   <div class="row d-flex justify-content-center">
@@ -9,13 +9,13 @@
           <div class="d-flex justify-content-between text-dark align-items-center">
           <% if params[:member_id] != nil %>
             <% if crew.member_id == @member.id %>
-             <h5> <strong> Número:</strong> <%= crew.id %></h5>
-             <h5> <strong> Embarcação:</strong> <%= crew.ship.name %></h5>
+             <h5><strong>#</strong><%= crew.id %></h5>
+             <h5><%= crew.ship.name %></h5>
             <% end %>
           <% end %>
           <% if params[:ship_id] != nil %>
             <% if crew.ship_id == @ship.id %>
-              <h5> <strong> Número:</strong><%= crew.id %></h5>
+              <h5><strong>#</strong><%= crew.id %></h5>
             <% end %>
         <% end %>
       <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary m-4"%>
