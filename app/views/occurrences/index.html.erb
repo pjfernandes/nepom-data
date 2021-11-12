@@ -10,8 +10,8 @@
   <%# <h5><%= occurrence.ship.name%>
 <%# <% end %>
 <div class="text-center p-4">
-  <%= link_to 'Criar ocorrência', new_user_occurrence_path(current_user), class:"btn btn-primary btn-lg mt-2 mb-4" %>
-  <%= link_to 'Voltar', :back, class:"btn btn-danger btn-lg mt-2 ml-2 mb-4" %>
+  <%= link_to 'Criar ocorrência', new_user_occurrence_path(current_user), class:"btn btn-primary btn-lg mt-2 mb-2" %>
+  <%= link_to 'Voltar', :back, class:"btn btn-danger btn-lg mt-2 ml-2 mb-2" %>
 </div>
 
 <div class="container">
@@ -20,10 +20,10 @@
       <% @occurrences.each do |occurrence| %>
         <div class="card p-3 mb-3">
           <div class="d-flex justify-content-between text-dark">
-            <h5> <strong>Embarcação: </strong><%= occurrence.ship.name%> </h5>
-            <h5> <strong>Data: </strong><%= occurrence.date%> </h5>
+            <h5> <strong>#</strong><%=occurrence.ship.name%> </h5>
+            <h5> <strong><%= occurrence.date%></strong></h5>
           </div>
-          <%=link_to "Detalhes", occurrence_path(occurrence), class: "btn btn-primary m-4"%>
+          <%=link_to "Detalhes", occurrence_path(occurrence), class: "btn btn-primary btn-lg m-4"%>
         </div>
       <% end %>
     </div>

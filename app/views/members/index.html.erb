@@ -12,8 +12,8 @@
     <div class="col-12 col-lg-6">
       <% @members.each do |member| %>
         <div class="card p-3 mb-3 text-dark">
-          <h4><strong>Nome: </strong><%= member.name %></h4>
-          <%=link_to "Detalhes", member_path(member), class: "btn btn-primary m-4"%>
+          <h4><strong>#</strong><%= member.name %></h4>
+          <%=link_to "Detalhes", member_path(member), class: "btn btn-primary btn-lg m-4"%>
         </div>
       <% end %>
     </div>
