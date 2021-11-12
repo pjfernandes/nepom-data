@@ -1,7 +1,12 @@
 class MembersController < ApplicationController
 
   def index
-    @members = Member.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query"
+      @members = Member.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @members = Member.last(10)
+    end
   end
 
   def new
@@ -39,10 +44,17 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
+  def delete_image_attachment
+    @member = member.find(params[:id])
+    @member.photo.purge
+    # redirect_to member_path(@member)
+    redirect_to edit_member_path(@member)
+  end
+
   private
 
   def member_params
-    params.require(:member).permit(:name, :CPF, :birth, :license_number, :doc_number, :doc_type)
+    params.require(:member).permit(:name, :CPF, :birth, :license_number, :doc_number, :doc_type, :photo)
   end
 
 end
