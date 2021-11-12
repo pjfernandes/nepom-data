@@ -1,9 +1,46 @@
 <%= simple_form_for(@member) do |f| %>
-    <%= f.input :name, label: "Nome" %>
-    <%= f.input :CPF, label: "CPF" %>
-    <%= f.input :birth, as: :date, label: "Data de nascimento" %>
-    <%= f.input :license_number, label: "Número da licença" %>
-    <%= f.input :doc_number, label: "Número do documento" %>
-    <%= f.input :doc_type, label: "Tipo de documento" %>
-    <%= f.button :submit, "Salvar", class: "btn-primary btn-lg text-center" %>
+  <div class="form-group justify-content-center">
+    <%= f.label "Nome" %>
+    <br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="form-group justify-content-center">
+    <%= f.label "CPF" %>
+    <br>
+    <%= f.text_field :CPF %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label "Data de Nascimento" %>
+    <br>
+    <%= f.date_field :birth %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label "Número da Licença" %>
+    <br>
+    <%= f.text_field :license_number %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label "Tipo do Documento" %>
+    <br>
+    <%= f.text_field :doc_type %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.label "Número do Documento" %>
+    <br>
+    <%= f.text_field :doc_number %>
+  </div>
+
+  <div class="form-group justify-content-center">
+    <%= f.input :photo, as: :file, label: "Foto" %>
+  </div>
+
+  <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg text-center" %>
+
+  <%=link_to "Voltar", member_path(@member), class: "btn btn-danger btn-lg"%>
+
 <% end %>

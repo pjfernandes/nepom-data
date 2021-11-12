@@ -3,6 +3,20 @@
 <%# <% @members.each do |member| %>
   <%# <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
 <%# <%end%>
+
+<%= form_tag members_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Insira nome"
+  %>
+  <div class="text-center p-4">
+    <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
+    <%=link_to "Novo", new_member_path, class: "btn btn-primary btn-lg"%>
+  </div>
+<% end %>
+
 <div class="text-center p-4">
   <%=link_to "Criar Tripulante", new_member_path, class: "class: btn btn-primary btn-lg"%>
 </div>

@@ -1,7 +1,12 @@
 class MembersController < ApplicationController
 
   def index
-    @members = Member.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query"
+      @members = Member.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @members = Member.last(10)
+    end
   end
 
   def new

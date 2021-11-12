@@ -1,7 +1,9 @@
+
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
+
   <% if @member != nil %>
     <%# <div class="form-group justify-content-center"> %>
-      <%= f.label :'Tripulante'%>
+      <%= f.label :'Tripulante: ' %>
       <br>
       <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
@@ -9,7 +11,7 @@
     <%# </div> %>
   <% else %>
     <%# <div class="form-group justify-content-center"> %>
-      <%= f.label :'Tripulante'%>
+      <%= f.label :'Tripulante: ' %>
       <br>
       <%= f.collection_select :member_id,
         Member.order(:name),
@@ -20,16 +22,19 @@
       %>
   <% end %>
 
+  <br>
+
   <% if @ship != nil %>
 
-
-      <%= f.label :'Embarcação'%>
+    <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Embarcação: ' %>
       <br>
       <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
       <br>
   <% else %>
-     <%= f.label :'Embarcação'%>
+     <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Embarcação: ' %>
       <br>
       <%= f.collection_select :ship_id,
         Ship.order(:name),
@@ -39,6 +44,7 @@
       %>
 
   <% end %>
+
   <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
   <%= f.input :date_fin, as: :date, label: "Data Final" %>
   <%= f.input :role, label: "Função" %>
