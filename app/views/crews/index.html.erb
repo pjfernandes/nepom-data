@@ -32,17 +32,25 @@
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-6">
       <% @crews.each do |crew| %>
-        <div class="card p-3 mb-3">
-          <div class="text-dark">
-          <h4>Tripulante: <%= Member.find(crew.member_id).name %></h4>
-          <h4>CPF: <%= Member.find(crew.member_id).CPF %></h4>           
-          <h4>Data Inicial: <%= crew.date_ini %></h4>
-          <h4>Data Final: <%= crew.date_fin %></h4>
-          <h4>Função: <%= crew.role %></h4>
-          </div>
-          <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary m-4"%>
-        </div>
-      <% end %>
+
+        <div class="card p-3 mb-3 text-center col-6 ml-2">
+          <div class="text-dark align-items-center">
+          <% if params[:member_id] != nil %>
+            <% if crew.member_id == @member.id %>
+             <h5><strong>#</strong><%= crew.id %> - <%= crew.ship.name %></h5>
+             <h5></h5>
+            <% end %>
+          <% end %>
+          <% if params[:ship_id] != nil %>
+            <% if crew.ship_id == @ship.id %>
+              <h5><strong>#</strong><%= crew.id %></h5>
+            <% end %>
+        <% end %>
+      <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary btn-lg mt-2"%>
+      </div>
+      </div>
+      <%end%>
+
     </div>
   </div>
 </div>
