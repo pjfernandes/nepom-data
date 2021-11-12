@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= @ship.name %></h1>
+<h1 class="text-center"><i class="fas fa-ship"></i> <%= @ship.name %></h1>
 
 <div class="container-form text-center d-flex justify-content-center p-4">
 <div class="card">
@@ -13,8 +13,8 @@
       <%end%>
     </div>
     <div class="form-login text-left p-4 text-dark">
-      <p>Registro: <%=@ship.registration%> </p>
-      <p>Porto de Registro: <%=@ship.registration_port%></p>
+      <p><strong>Registro: </strong><%=@ship.registration%> </p>
+      <p><strong>Porto de Registro: </strong><%=@ship.registration_port%></p>
     </div>
   </div>
 </div>
@@ -30,8 +30,8 @@
   </div>
 
   <div>
-  <%=link_to "Voltar", ships_path, class: "btn btn-danger btn-lg"%>
-  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-primary btn-lg"%>
+  <%=link_to "Voltar", ships_path, class: "btn btn-danger btn-lg mr-2"%>
+  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-primary btn-lg ml-2"%>
   </div>
   <%#=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
 </div>

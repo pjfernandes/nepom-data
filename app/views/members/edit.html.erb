@@ -1,3 +1,30 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i> Editar Tripulante</h2>
-<%= render "form", member: @member %>
+<%# <%= render "form", member: @member %>
 
+<%= simple_form_for(@member) do |f| %>
+    <%= f.input :name, label: "Nome" %>
+    <%= f.input :CPF, label: "CPF" %>
+    <%= f.input :birth, as: :date, label: "Data de nascimento" %>
+    <%# <%= f.label :birth %>
+    <%# <%= f.date_field :birth%>
+    <%= f.input :license_number, label: "Número da licença" %>
+    <%= f.input :doc_number, label: "Número do documento" %>
+    <%= f.input :doc_type, label: "Tipo de documento" %>
+    <div class="text-center mr-1 pb-2">
+      <div>
+        <% if @member.photo.attached? %>
+          <%= cl_image_tag @member.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
+        <%else%>
+          <i class="fas fa-file-upload upload"></i>
+        <%end%>
+      </div>
+      <div>
+        <%= link_to 'Remover imagem', delete_image_attachment_member_path(@member),
+                  method: :delete,
+                  data: { confirm: 'Confirma a remoção da imagem?' },
+                  class: "btn btn-primary m-4" %>
+      </div>
+    </div>
+    <%= f.input :photo, as: :file, label: "Foto" %>
+    <%= f.button :submit, "Salvar", class: "btn-primary btn-lg text-center" %>
+<% end %>

@@ -1,30 +1,35 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i> Tripulação <%= @crew.id %></h2>
 
-<p>
+<div class="card p-4 mb-3 mt-3">
+  <div class="d-flex justify-content-between text-dark">
+    <p>
   <% if @crew.member_id %>
-    Tripulante: <%= Member.find(@crew.member_id).name %>
+    <strong> Tripulante: </strong><%= Member.find(@crew.member_id).name %>
   <% end %>
 </p>
 <p>
   <% if @crew.ship_id %>
-    Embarcação: <%= Ship.find(@crew.ship_id).name %>
+    <strong>Embarcação: </strong><%= Ship.find(@crew.ship_id).name %>
   <% end %>
 </p>
 <p>
   <% if @crew.date_ini %>
-    Função: <%= @crew.date_ini %>
+    <strong>Data de início: </strong><%= @crew.date_ini %>
   <% end %>
 </p>
 <p>
   <% if @crew.date_fin %>
-    Função: <%= @crew.date_fin %>
+    <strong>Data final: </strong><%= @crew.date_fin %>
   <% end %>
 </p>
 <p>
   <% if @crew.role %>
-    Função: <%= @crew.role %>
+    <strong>Função: </strong><%= @crew.role %>
   <% end %>
 </p>
+  </div>
+</div>
+
 
 <%=link_to "Editar", edit_crew_path(@crew), class: "btn btn-primary m-4" %>
 <%#= link_to "Deletar", member_crew_path(@crew), method: :delete, data: { confirm: "Está certo disso?" }, class: "btn btn-success m-4" %>

@@ -4,6 +4,7 @@
   <% if @member != nil %>
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante: ' %>
+      <br>
       <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
       <br>
@@ -11,13 +12,14 @@
   <% else %>
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Tripulante: ' %>
+      <br>
       <%= f.collection_select :member_id,
         Member.order(:name),
         :id,
         :name,
-        include_blank: false
+        include_blank: false,
+        selected: params[:selected_member_id]
       %>
-    <%# </div> %>
   <% end %>
 
   <br>
@@ -26,25 +28,26 @@
 
     <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Embarcação: ' %>
+      <br>
       <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
       <br>
-    <%# </div> %>
   <% else %>
      <%# <div class="form-group justify-content-center"> %>
       <%= f.label :'Embarcação: ' %>
+      <br>
       <%= f.collection_select :ship_id,
         Ship.order(:name),
         :id,
         :name,
         include_blank: false
       %>
-    <%# </div> %>
+
   <% end %>
 
   <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
   <%= f.input :date_fin, as: :date, label: "Data Final" %>
   <%= f.input :role, label: "Função" %>
-  <%= f.button :submit, "Salvar", class: "btn btn-primary text-center" %>
-
+  <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg mr-2 text-center" %>
+  <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary btn-lg text-center" %>
 <% end %>

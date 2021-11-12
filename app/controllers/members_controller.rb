@@ -10,14 +10,19 @@ class MembersController < ApplicationController
   end
 
   def new
-    @member = Member.new()
+    @member = Member.new
   end
 
   def create
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to member_path(@member), notice: 'Member was successfully created.'
+      if params[:member][:ship_id].present?
+        redirect_to new_ship_crew_path(params[:member][:ship_id], selected_member_id: @member.id)
+        # a linha acima passa, além dos parâmetros ship e member, uma variável selected_member_id: @member.id para ser utilizada na view
+      else
+        redirect_to member_path(@member), notice: 'Member was successfully created.'
+      end
     else
       render :new
     end
@@ -45,9 +50,9 @@ class MembersController < ApplicationController
   end
 
   def delete_image_attachment
-    @member = member.find(params[:id])
+    @member = Member.find(params[:id])
     @member.photo.purge
-    # redirect_to member_path(@member)
+    # redirect_to ship_path(@ship)
     redirect_to edit_member_path(@member)
   end
 

@@ -1,1 +1,31 @@
-<h1>Show!!</h1>
+<h1 class="text-center"><i class="fas fa-paste"></i> Ocorrência n° <%= @occurrence.id %></h1>
+<div class="container-form text-center d-flex justify-content-center p-4">
+<div class="card">
+  <%# <div class="form-login text-center mr-1"> %>
+    <div class="d-flex justify-content-between">
+    <% if @occurrence.ship.photo.attached? %>
+      <%= cl_image_tag @occurrence.ship.photo.key, height: 300, width: 400, crop: :fill, class:"pb-4 rounded" %>
+    <%else%>
+    <div class="card-img-top p-3">
+      <i class="fas fa-file-upload upload cover"></i>
+    </div>
+    <%end%>
+
+  </div>
+  <div class="form-login text-left p-4 text-dark">
+    <p><strong>Embarcação: </strong> <%=@occurrence.ship.name%> </p>
+    <p><strong>Registro da Embarcação: </strong> <%=@occurrence.ship.registration%> </p>
+    <p><strong>Data: </strong><%=@occurrence.date%></p>
+    <p><strong>Hora: </strong><%=@occurrence.time%></p>
+    <p><strong>Latitude: </strong><%=@occurrence.latitude%></p>
+    <p><strong>Longitude: </strong><%=@occurrence.longitude%></p>
+    <p><strong>Origem: </strong><%=@occurrence.ship_origin%></p>
+    <p><strong>Destino: </strong><%=@occurrence.ship_destination%></p>
+    <p><strong>Descrição: </strong><%=@occurrence.description%></p>
+  </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <%=link_to "Voltar", occurrences_path, class: "btn btn-danger btn-lg"%>
+</div>

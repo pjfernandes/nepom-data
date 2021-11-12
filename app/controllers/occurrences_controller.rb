@@ -29,7 +29,7 @@ class OccurrencesController < ApplicationController
     @occurrence = Occurrence.new(occurrence_params)
     @occurrence.user = current_user
     if @occurrence.save
-      redirect_to user_occurrences_path(@occurrence), notice: 'Occurrence was successfully created!'
+      redirect_to occurrences_path, notice: 'Occurrence was successfully created!'
     else
       render :new
     end
@@ -44,7 +44,7 @@ class OccurrencesController < ApplicationController
 
   def occurrence_params
     params.require(:occurrence).permit(
-      :ship_id, :latitude, :longitude, :date, :time, :ship_origin, :ship_destination, :user_id
+      :ship_id, :latitude, :longitude, :date, :time, :ship_origin, :ship_destination, :user_id, :description
     )
   end
 
