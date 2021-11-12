@@ -8,12 +8,13 @@
       class: "form-control",
       placeholder: "Insira nome ou registro"
     %>
+
     <div class="text-center p-4">
       <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg ml-2 mr-2 mb-2" %>
       <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg mb-2 ml-2 mr-2" %>
       <%=link_to "Novo", new_ship_path, class: "btn btn-danger btn-lg ml-2 mr-2 mb-2"%>
     </div>
-    <% end %>
+   <% end %>
 
 
 <div class="container">

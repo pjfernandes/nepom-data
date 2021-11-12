@@ -1,15 +1,20 @@
+
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
+
   <% if @member != nil %>
 
-      <%= f.label :'Tripulante'%>
+    <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Tripulante: ' %>
       <br>
       <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
       <br>
 
-  <% if @ship != nil %>
-  <h2 class="text-center"><i class="fas fa-anchor"></i> Criar tripulação</h2>
-      <%= f.label :'Tripulante'%>
+    <%# </div> %>
+  <% else %>
+    <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Tripulante: ' %>
+
       <br>
       <%= f.collection_select :member_id,
         Member.order(:name),
@@ -19,18 +24,23 @@
         selected: params[:selected_member_id]
       %>
 
-      <br>
+
+  <br>
 
 
+  <% if @ship != nil %>
 
 
-      <%# <%= f.label :'Embarcação'%>
+    <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Embarcação: ' %>
+
       <br>
       <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
       <br>
   <% else %>
-     <%= f.label :'Embarcação'%>
+     <%# <div class="form-group justify-content-center"> %>
+      <%= f.label :'Embarcação: ' %>
       <br>
       <%= f.collection_select :ship_id,
         Ship.order(:name),
@@ -56,6 +66,7 @@
 
   <% end %>
 
+
   <br>
   <br>
 
@@ -72,4 +83,5 @@
     <%end%>
 
   </div>
+
 <% end %>
