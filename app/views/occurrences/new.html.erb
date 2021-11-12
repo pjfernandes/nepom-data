@@ -5,7 +5,7 @@
   <div id="new-form">
     <%= f.input :date, label: 'Data', :order => [:day, :month, :year] %>
     <%=f.input :time, label: 'Hora', as: :string, input_html: { value: Time.now.strftime("%H:%M:%S") }%>
-    <%=f.input :ship_id, label: 'Embarcação', placeholder: 'Embarcação'%>
+    <%=f.association :ship, label: 'Embarcação'%>
     <%=f.input :ship_origin, label: 'Origem', placeholder: 'Origem'%>
     <%=f.input :ship_destination, label: 'Destino', placeholder: 'Destino'%>
     <%=f.input :description, label: 'Descrição', as: :text %>
