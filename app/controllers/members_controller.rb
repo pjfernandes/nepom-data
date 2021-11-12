@@ -12,7 +12,11 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to member_path(@member), notice: 'Member was successfully created.'
+      if params[:member][:ship_id].present?
+        redirect_to new_ship_crew_path(params[:member][:ship_id], selected_member_id: @member.id)
+      else
+        redirect_to member_path(@member), notice: 'Member was successfully created.'
+      end
     else
       render :new
     end

@@ -16,7 +16,8 @@ raise
         Member.order(:name),
         :id,
         :name,
-        include_blank: false
+        include_blank: false,
+        selected: params[:selected_member_id]
       %>
     <%# </div> %>
   <% end %>
@@ -47,5 +48,5 @@ raise
   <%= f.input :date_fin, as: :date, label: "Data Final" %>
   <%= f.input :role, label: "Função" %>
   <%= f.button :submit, "Salvar", class: "btn btn-primary text-center" %>
-  <%= link_to 'Criar Tripulante', new_member_ship_path, class: "btn btn-primary text-center" %>
+  <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary text-center" %>
 <% end %>
