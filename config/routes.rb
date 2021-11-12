@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   resources :ships do
     member do
       delete :delete_image_attachment
-      get :new_member
-      post :create_member
     end
     resources :crews, only: %i[new create index]
   end

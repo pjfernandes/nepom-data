@@ -1,12 +1,10 @@
 <h2 class="text-center"><i class="fas fa-anchor"></i> Criar Tripulante</h2>
-<%# <%= render "form", member: @member %>
 
 <%= simple_form_for(@member) do |f| %>
+    <%= f.hidden_field :ship_id, value: params[:ship_id] %>
     <%= f.input :name, label: "Nome" %>
     <%= f.input :CPF, label: "CPF" %>
     <%= f.input :birth, as: :date, label: "Data de nascimento" %>
-    <%# <%= f.label :birth %>
-    <%# <%= f.date_field :birth%>
     <%= f.input :license_number, label: "Número da licença" %>
     <%= f.input :doc_number, label: "Número do documento" %>
     <%= f.input :doc_type, label: "Tipo de documento" %>
