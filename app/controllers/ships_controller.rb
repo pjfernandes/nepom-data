@@ -15,14 +15,14 @@ class ShipsController < ApplicationController
 
   def create
     @ship = Ship.new(ship_params)
-    
+
     if @ship.save
       redirect_to ship_path(@ship), notice: 'Embarcação criada com sucesso.'
     else
       render :new
     end
   end
-  
+
   def show
     @ship = Ship.find(params[:id])
   end
@@ -50,7 +50,14 @@ class ShipsController < ApplicationController
     redirect_to edit_ship_path(@ship)
   end
 
-  private
+  def new_member
+    @ship = Ship.find(params[:id])
+    @member = Member.new
+  end
+
+
+
+private
 
   def ship_params
     params.require(:ship).permit(:name, :registration, :registration_port, :photo)
