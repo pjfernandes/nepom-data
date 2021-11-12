@@ -1,14 +1,14 @@
 <%= simple_form_for [@member, @ship, @crew] do |f| %>
   <% if @member != nil %>
-    <%# <div class="form-group justify-content-center"> %>
+
       <%= f.label :'Tripulante'%>
       <br>
       <% @crew.member = @member %>
       <%= Member.find(@crew.member_id).name %>
       <br>
-    <%# </div> %>
-  <% else %>
-    <%# <div class="form-group justify-content-center"> %>
+
+  <% if @ship != nil %>
+  <h2 class="text-center"><i class="fas fa-anchor"></i> Criar tripulação</h2>
       <%= f.label :'Tripulante'%>
       <br>
       <%= f.collection_select :member_id,
@@ -18,12 +18,13 @@
         include_blank: false,
         selected: params[:selected_member_id]
       %>
-  <% end %>
 
-  <% if @ship != nil %>
+      <br>
 
 
-      <%= f.label :'Embarcação'%>
+
+
+      <%# <%= f.label :'Embarcação'%>
       <br>
       <% @crew.ship_id = @ship.id %>
       <%= Ship.find(@crew.ship_id).name %>
@@ -38,10 +39,37 @@
         include_blank: false
       %>
 
+
   <% end %>
-  <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
-  <%= f.input :date_fin, as: :date, label: "Data Final" %>
-  <%= f.input :role, label: "Função" %>
-  <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg mr-2 text-center" %>
-  <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary btn-lg text-center" %>
+
+  <% else %>
+
+      <%= f.label :'Tripulante'%>
+      <br>
+      <%= f.collection_select :member_id,
+        Member.order(:name),
+        :id,
+        :name,
+        include_blank: false,
+        selected: params[:selected_member_id]
+      %>
+
+  <% end %>
+
+  <br>
+  <br>
+
+
+  <div class="mt-4">
+    <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
+    <%= f.input :date_fin, as: :date, label: "Data Final" %>
+    <%= f.input :role, label: "Função" %>
+    <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg mr-2 text-center" %>
+     <%=link_to 'Voltar', :back, class: "btn btn-danger btn-lg text-center" %>
+    <br>
+    <% if @ship != nil %>
+      <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary btn-lg text-center mt-4" %>
+    <%end%>
+
+  </div>
 <% end %>

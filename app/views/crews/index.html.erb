@@ -6,11 +6,11 @@
     <div class="row d-flex justify-content-center">
       <% @crews.each do |crew| %>
         <div class="card p-3 mb-3 text-center col-6 ml-2">
-          <div class="d-flex justify-content-between text-dark align-items-center">
+          <div class="text-dark align-items-center">
           <% if params[:member_id] != nil %>
             <% if crew.member_id == @member.id %>
-             <h5><strong>#</strong><%= crew.id %></h5>
-             <h5><%= crew.ship.name %></h5>
+             <h5><strong>#</strong><%= crew.id %> - <%= crew.ship.name %></h5>
+             <h5></h5>
             <% end %>
           <% end %>
           <% if params[:ship_id] != nil %>
@@ -18,7 +18,7 @@
               <h5><strong>#</strong><%= crew.id %></h5>
             <% end %>
         <% end %>
-      <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary m-4"%>
+      <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary btn-lg mt-2"%>
       </div>
       </div>
       <%end%>

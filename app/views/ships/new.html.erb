@@ -7,5 +7,6 @@
       <%= f.input :registration, label: "Registro" %>
       <%= f.input :registration_port, label: "Porto de registro" %>
       <%= f.input :photo, as: :file, label: "Foto" %>
-      <%= f.button :submit, "Incluir", class: "btn btn-primary btn-lg text-center" %>
+      <%= f.button :submit, "Incluir", class: "btn btn-primary btn-lg text-center mr-2" %>
+      <%=link_to 'Voltar', :back, class: "btn btn-danger btn-lg text-center" %>
    <% end %>
