@@ -1,38 +1,10 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da embarcação: <%= Ship.find(@ship_id).name  %></h2>
+<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulação</h2>
 
-<%= form_tag ship_crews_path, method: :get do %>
-  Nome:
-  <%= text_field_tag :query_name,
-    params[:query_name],
-    class: "form-control",
-    placeholder: "Insira nome"
-  %>
-  <br>
-  Data Inicial:
-  <%= date_field_tag :query_date_ini,
-    params[:query_date_ini],
-    class: "form-control"
-  %>
-  <br>
-  Data Final:
-  <%= date_field_tag :query_date_fin,
-    params[:query_date_fin],
-    class: "form-control"
-  %>
-
-  <div class="text-center p-4">
-    <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
-    <%#=link_to "Novo", new_ship_path, class: "btn btn-primary btn-lg"%>
-  </div>
-
-<% end %>
-
-<div class="container">
+<%# <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6"> %>
+    <div class="row d-flex justify-content-center">
       <% @crews.each do |crew| %>
-
         <div class="card p-3 mb-3 text-center col-6 ml-2">
           <div class="text-dark align-items-center">
           <% if params[:member_id] != nil %>
@@ -50,7 +22,6 @@
       </div>
       </div>
       <%end%>
-
     </div>
-  </div>
-</div>
+  <%# </div>
+</div> %>
