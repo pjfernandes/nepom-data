@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship_id).name  %></h2>
+<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da embarcação: <%= Ship.find(@ship_id).name  %></h2>
 
 <%= form_tag ship_crews_path, method: :get do %>
   Nome:
@@ -7,14 +7,14 @@
     class: "form-control",
     placeholder: "Insira nome"
   %>
-  <br> 
-  Data Inicial: 
+  <br>
+  Data Inicial:
   <%= date_field_tag :query_date_ini,
     params[:query_date_ini],
     class: "form-control"
   %>
-  <br> 
-  Data Final: 
+  <br>
+  Data Final:
   <%= date_field_tag :query_date_fin,
     params[:query_date_fin],
     class: "form-control"
@@ -54,7 +54,3 @@
     </div>
   </div>
 </div>
-
-
-
-
