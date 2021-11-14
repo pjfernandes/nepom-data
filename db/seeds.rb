@@ -59,7 +59,7 @@ members = []
   )
   members << member
 end
-puts '30 members created'
+puts '300 members created'
 puts '------------------------'
 puts ''
 puts 'Creating crews'
@@ -87,8 +87,8 @@ puts 'Creating occurrences'
     date: Faker::Date.between(from: '2019-01-01', to: '2021-11-09'),
     user: users.sample,
     ship: ships.sample,
-    latitude: coordinate[:lat] + rand(-0.009..0.009),
-    longitude: coordinate[:long] + rand(-0.009..0.009)
+    latitude: coordinate[:lat] + rand(-0.0009..0.0009),
+    longitude: coordinate[:long] + rand(-0.0009..0.0009)
   )
 end
 puts '50 occurrences created'
