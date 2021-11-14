@@ -13,33 +13,42 @@ Crew.destroy_all
 Ship.destroy_all
 Member.destroy_all
 User.destroy_all
-puts '<<<< Database cleaned >>>>'
+USERS = [
+  { name: 'Pret', email: 'lc@lewagon.com', password: '123456' },
+  { name: 'Marcelo', email: 'marcelo@lewagon.com', password: '123456' },
+  { name: 'Pedro', email: 'pedro@lewagon.com', password: '123456' },
+  { name: 'Tati', email: 'tati@lewagon.com', password: '123456' }
+]
+SHIPS = [
+  { name: 'Pinta', registration: '23456', registration_port: 'Hamburg' },
+  { name: 'Kontiki', registration: '23098', registration_port: 'Santos' },
+  { name: 'Calipso', registration: '45678', registration_port: 'Salvador' },
+  { name: 'Pequod', registration: '98765', registration_port: 'Nantucket' },
+  { name: 'Palestrante', registration: '34521', registration_port: 'Rio de Janeiro' },
+  { name: 'Revenge', registration: '76543', registration_port: 'Paranaguá' }
+]
+COORDINATES = [
+  { lat: -20.320733, long: -40.288746 },
+  { lat: -20.321850, long: -40.287309 },
+  { lat: -20.325063, long: -40.305819 },
+  { lat: -20.328395, long: -40.309506 },
+  { lat: -20.304786, long: -40.288989 },
+  { lat: -20.300593, long: -40.288322 },
+  { lat: -20.385191, long: -40.248976 },
+  { lat: -20.397916, long: -40.240126 },
+  { lat: -20.320289, long: -40.301764 }
+]
+  puts '<<<< Database cleaned >>>>'
 puts '------------------------'
 puts ''
-users = User.create!(
-  [
-    { name: 'Pret', email: 'lc@lewagon.com', password: '123456' },
-    { name: 'Marcelo', email: 'marcelo@lewagon.com', password: '123456' },
-    { name: 'Pedro', email: 'pedro@lewagon.com', password: '123456' },
-    { name: 'Tati', email: 'tati@lewagon.com', password: '123456' }
-  ]
-)
+users = User.create!(USERS)
 puts 'Creating users'
 users.each { |user| puts "#{user.name} created" }
 puts '4 users created'
 puts '------------------------'
 puts ''
 
-ships = Ship.create!(
-  [
-    { name: 'Pinta', registration: '23456', registration_port: 'Hamburg' },
-    { name: 'Kontiki', registration: '23098', registration_port: 'Santos' },
-    { name: 'Calipso', registration: '45678', registration_port: 'Salvador' },
-    { name: 'Pequod', registration: '98765', registration_port: 'Nantucket' },
-    { name: 'Palestrante', registration: '34521', registration_port: 'Rio de Janeiro' },
-    { name: 'Revenge', registration: '76543', registration_port: 'Paranaguá' }
-  ]
-)
+ships = Ship.create!(SHIPS)
 puts 'Creating ships'
 ships.each { |ship| puts "#{ship.name} created" }
 puts '6 ships created'
@@ -47,14 +56,14 @@ puts '------------------------'
 puts ''
 puts 'Creating members'
 members = []
-30.times do
+300.times do
   member = Member.create!(
     name: Faker::Name.name,
     birth: Faker::Date.birthday(min_age: 18, max_age: 65)
   )
   members << member
 end
-puts '30 members created'
+puts '300 members created'
 puts '------------------------'
 puts ''
 puts 'Creating crews'
@@ -76,19 +85,14 @@ puts 'Crews created'
 puts '------------------------'
 puts ''
 puts 'Creating occurrences'
-coordinates = [
-  { lat: -20.322646, long: -40.281658 },
-  { lat: -20.320973, long: -40.278057 },
-  { lat: -20.309944, long: -40.274634 }
-]
 50.times do
-  coordinate = coordinates.sample
+  coordinate = COORDINATES.sample
   Occurrence.create!(
     date: Faker::Date.between(from: '2019-01-01', to: '2021-11-09'),
     user: users.sample,
     ship: ships.sample,
-    latitude: coordinate[:lat],
-    longitude: coordinate[:long]
+    latitude: coordinate[:lat] + rand(-0.0009..0.0009),
+    longitude: coordinate[:long] + rand(-0.0009..0.0009)
   )
 end
 puts '50 occurrences created'
