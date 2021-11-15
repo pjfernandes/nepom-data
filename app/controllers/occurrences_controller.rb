@@ -5,15 +5,19 @@ class OccurrencesController < ApplicationController
   # around_action :set_time_zone, if: :current_user
 
   def index
-    @occurrences = Occurrence.all
+    if params[:query]
+      @occurrences = Occurrence.search_by_ship(params[:query])
+    else
+      @occurrences = Occurrence.all
+    end
 
     @markers = @occurrences.map do |occurrence|
-          {
-            lat: occurrence.latitude,
-            lng: occurrence.longitude,
-            info_window: render_to_string(partial: "info_window", locals: { occurrence: occurrence })
-          }
-        end
+      {
+        lat: occurrence.latitude,
+        lng: occurrence.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { occurrence: occurrence })
+      }
+    end
 
   end
 
