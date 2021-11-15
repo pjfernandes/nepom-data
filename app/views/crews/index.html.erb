@@ -1,48 +1,112 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship_id).name  %></h2>
+<%# Index de tripulantes por embarcação %>
 
-<%= form_tag ship_crews_path, method: :get do %>
-  Nome:
-  <%= text_field_tag :query_name,
-    params[:query_name],
-    class: "form-control",
-    placeholder: "Insira nome"
-  %>
-  <br>
-  Data Inicial:
-  <%= date_field_tag :query_date_ini,
-    params[:query_date_ini],
-    class: "form-control"
-  %>
-  <br>
-  Data Final:
-  <%= date_field_tag :query_date_fin,
-    params[:query_date_fin],
-    class: "form-control"
-  %>
+<% if @ship_id != nil %>
 
-  <div class="text-center p-4">
-    <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
-    <%#=link_to "Novo", new_ship_path, class: "btn btn-primary btn-lg"%>
+  <h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship_id).name  %></h2>
+
+  <%= form_tag ship_crews_path, method: :get do %>
+    Nome:
+    <%= text_field_tag :query_name,
+      params[:query_name],
+      class: "form-control",
+      placeholder: "Insira nome"
+    %>
+    <br>
+    Data Inicial:
+    <%= date_field_tag :query_date_ini,
+      params[:query_date_ini],
+      class: "form-control"
+    %>
+    <br>
+    Data Final:
+    <%= date_field_tag :query_date_fin,
+      params[:query_date_fin],
+      class: "form-control"
+    %>
+
+    <div class="text-center p-4">
+      <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
+      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
+      <%#=link_to "Novo", new_ship_path, class: "btn btn-primary btn-lg"%>
+    </div>
+
+  <% end %>
+
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-lg-6">
+        <% @crews.each do |crew| %>
+          <div class="card p-3 mb-3">
+            <div class="text-dark">
+            <h4><strong>Tripulante: </strong><%= Member.find(crew.member_id).name %></h4>
+            <h4><strong>CPF: </strong><%= Member.find(crew.member_id).CPF %></h4>
+            <h4><strong>Data Inicial: </strong><%= crew.date_ini %></h4>
+            <h4><strong>Data Final: </strong><%= crew.date_fin %></h4>
+            <h4><strong>Função: </strong><%= crew.role %></h4>
+            </div>
+            <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary m-4"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 <% end %>
 
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-6">
-      <% @crews.each do |crew| %>
-        <div class="card p-3 mb-3">
-          <div class="text-dark">
-          <h4>Tripulante: <%= Member.find(crew.member_id).name %></h4>
-          <h4>CPF: <%= Member.find(crew.member_id).CPF %></h4>
-          <h4>Data Inicial: <%= crew.date_ini %></h4>
-          <h4>Data Final: <%= crew.date_fin %></h4>
-          <h4>Função: <%= crew.role %></h4>
+<%# -------------------------------------- %>
+<%# Index de embarcações por tripulante %>
+
+<% if @member_id != nil %>
+
+  <h2 class="text-center"><i class="fas fa-anchor"></i>Embarcações do Tripulante: <%= Member.find(@member_id).name  %></h2>
+
+  <%= form_tag member_crews_path, method: :get do %>
+    Nome:
+    <%= text_field_tag :query_name,
+      params[:query_name],
+      class: "form-control",
+      placeholder: "Insira nome"
+    %>
+    <br>
+    Data Inicial:
+    <%= date_field_tag :query_date_ini,
+      params[:query_date_ini],
+      class: "form-control"
+    %>
+    <br>
+    Data Final:
+    <%= date_field_tag :query_date_fin,
+      params[:query_date_fin],
+      class: "form-control"
+    %>
+
+    <div class="text-center p-4">
+      <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
+      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
+      <%#=link_to "Novo", new_member_path, class: "btn btn-primary btn-lg"%>
+    </div>
+
+  <% end %>
+
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-lg-6">
+        <% @crews.each do |crew| %>
+          <div class="card p-3 mb-3">
+            <div class="text-dark">
+            <h4><strong>Embarcação: </strong><%= Ship.find(crew.ship_id).name %></h4>
+            <h4><strong>Registro: </strong><%= Ship.find(crew.ship_id).registration %></h4>
+            <h4><strong>Porto de Registro: </strong><%= Ship.find(crew.ship_id).registration %></h4>
+            <h4><strong>Data Inicial: </strong><%= crew.date_ini %></h4>
+            <h4><strong>Data Final: </strong><%= crew.date_fin %></h4>
+            <h4><strong>Função: </strong><%= crew.role %></h4>
+            </div>
+            <%=link_to "Detalhes", ship_path(Ship.find(crew.ship_id)), class: "btn btn-primary m-4"%>
           </div>
-          <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary m-4"%>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+
+<% end %>
+
