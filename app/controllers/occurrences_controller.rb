@@ -5,8 +5,8 @@ class OccurrencesController < ApplicationController
   # around_action :set_time_zone, if: :current_user
 
   def index
-    if params[:query]
-      @occurrences = Occurrence.search_by_ship(params[:query])
+    if params[:query_ship]
+      @occurrences = Occurrence.search_by_ship(params[:query_ship])
     else
       @occurrences = Occurrence.all
     end
