@@ -1,27 +1,48 @@
-<h2 class="text-center pb-2"><i class="fas fa-anchor"></i> Tripulação</h2>
+<h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship_id).name  %></h2>
 
-<%# <div class="container">
+<%= form_tag ship_crews_path, method: :get do %>
+  Nome:
+  <%= text_field_tag :query_name,
+    params[:query_name],
+    class: "form-control",
+    placeholder: "Insira nome"
+  %>
+  <br>
+  Data Inicial:
+  <%= date_field_tag :query_date_ini,
+    params[:query_date_ini],
+    class: "form-control"
+  %>
+  <br>
+  Data Final:
+  <%= date_field_tag :query_date_fin,
+    params[:query_date_fin],
+    class: "form-control"
+  %>
+
+  <div class="text-center p-4">
+    <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg" %>
+    <%#=link_to "Novo", new_ship_path, class: "btn btn-primary btn-lg"%>
+  </div>
+
+<% end %>
+
+<div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-6"> %>
-    <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6">
       <% @crews.each do |crew| %>
-        <div class="card p-3 mb-3 text-center col-6 ml-2">
-          <div class="text-dark align-items-center">
-          <% if params[:member_id] != nil %>
-            <% if crew.member_id == @member.id %>
-             <h5><strong>#</strong><%= crew.id %> - <%= crew.ship.name %></h5>
-             <h5></h5>
-            <% end %>
-          <% end %>
-          <% if params[:ship_id] != nil %>
-            <% if crew.ship_id == @ship.id %>
-              <h5><strong>#</strong><%= crew.id %></h5>
-            <% end %>
-        <% end %>
-      <%=link_to "Detalhes", crew_path(crew), class: "btn btn-primary btn-lg mt-2"%>
-      </div>
-      </div>
-      <%end%>
+        <div class="card p-3 mb-3">
+          <div class="text-dark">
+          <h4>Tripulante: <%= Member.find(crew.member_id).name %></h4>
+          <h4>CPF: <%= Member.find(crew.member_id).CPF %></h4>
+          <h4>Data Inicial: <%= crew.date_ini %></h4>
+          <h4>Data Final: <%= crew.date_fin %></h4>
+          <h4>Função: <%= crew.role %></h4>
+          </div>
+          <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary m-4"%>
+        </div>
+      <% end %>
     </div>
-  <%# </div>
-</div> %>
+  </div>
+</div>
