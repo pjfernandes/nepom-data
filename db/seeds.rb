@@ -38,6 +38,9 @@ COORDINATES = [
   { lat: -20.397916, long: -40.240126 },
   { lat: -20.320289, long: -40.301764 }
 ]
+MEMBERS = (
+  JSON.parse((URI.open('https://randomuser.me/api/?nat=br,us,fr,gb&inc=name,dob,id,picture&results=300').read))
+)['results']
   puts '<<<< Database cleaned >>>>'
 puts '------------------------'
 puts ''
@@ -56,10 +59,13 @@ puts '------------------------'
 puts ''
 puts 'Creating members'
 members = []
-300.times do
+MEMBERS.each do |member|
   member = Member.create!(
-    name: Faker::Name.name,
-    birth: Faker::Date.birthday(min_age: 18, max_age: 65)
+    name: "#{member['name']['first']} #{member['name']['last']}",
+    birth: member['dob']['date'],
+    doc_number: member['id']['value'].to_s,
+    doc_type: member['id']['name'].to_s,
+    image: member['picture']['thumbnail'].to_s
   )
   members << member
 end
