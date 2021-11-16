@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
+require 'json'
+require 'cloudinary'
 
 puts 'Cleaning up database...'
 Occurrence.destroy_all
@@ -39,7 +41,7 @@ COORDINATES = [
   { lat: -20.320289, long: -40.301764 }
 ]
 MEMBERS = (
-  JSON.parse((URI.open('https://randomuser.me/api/?nat=br,us,fr,gb&inc=name,dob,id,picture&results=300').read))
+  JSON.parse((URI.open('https://randomuser.me/api/?nat=br,us,fr,gb&inc=name,dob,id,picture&results=100').read))
 )['results']
   puts '<<<< Database cleaned >>>>'
 puts '------------------------'
@@ -60,13 +62,20 @@ puts ''
 puts 'Creating members'
 members = []
 MEMBERS.each do |member|
+
   member = Member.create!(
     name: "#{member['name']['first']} #{member['name']['last']}",
     birth: member['dob']['date'],
     doc_number: member['id']['value'].to_s,
     doc_type: member['id']['name'].to_s,
-    image: member['picture']['thumbnail'].to_s
+    image: member['picture']['large'].to_s
   )
+
+  file = URI.open(member.image)
+  puts member.image
+  member.photo.attach(io: file, filename: "image.jpg", content_type: 'image/jpg')
+  member.save
+
   members << member
 end
 puts '300 members created'
