@@ -5,9 +5,12 @@
     <%= text_field_tag :query_ship,
       params[:query_ship],
       class: "form-control",
-      placeholder: "Insira nome da embarcação, registro ou porto de registro"
+      placeholder: "Nome, registro ou porto de registro"
     %>
-    <br>
+     <div class="text-center p-4">
+      <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg mr-2 mb-2" %>
+      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg mb-2 mr-2" %>
+    </div>
 <% end %>
 
 <div id="map"
@@ -27,7 +30,7 @@
         <div class="card p-3 mb-3">
           <div class="d-flex justify-content-between text-dark">
             <h5> <strong>#</strong><%=occurrence.ship.name%> </h5>
-            <h5> <strong><%= occurrence.date.strftime("%d-%m-%Y")%></strong></h5>
+            <h5> <strong><%= occurrence.date.strftime("%d/%m/%Y")%></strong></h5>
           </div>
           <%=link_to "Detalhes", occurrence_path(occurrence), class: "btn btn-primary btn-lg m-4"%>
         </div>
