@@ -65,10 +65,10 @@
     <%= f.input :date_fin, as: :date, label: "Data Final" %>
     <%= f.input :role, label: "Função" %>
     <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg mr-2 text-center" %>
-     <%=link_to 'Voltar', :back, class: "btn btn-danger btn-lg text-center" %>
+     <%=link_to 'Voltar', :back, class: "btn btn-warning btn-lg text-center" %>
     <br>
     <% if @ship != nil %>
-      <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary btn-lg text-center mt-4" %>
+      <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-success btn-lg text-center mt-4" %>
     <%end%>
 
   </div>
