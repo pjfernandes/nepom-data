@@ -8,7 +8,7 @@ class OccurrencesController < ApplicationController
     if params[:query_ship]
       @occurrences = Occurrence.search_by_ship(params[:query_ship])
     else
-      @occurrences = Occurrence.all
+      @occurrences = Occurrence.all.order('occurrences.date DESC')
     end
 
     @markers = @occurrences.map do |occurrence|
