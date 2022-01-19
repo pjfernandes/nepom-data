@@ -6,7 +6,7 @@ class OccurrencesController < ApplicationController
 
   def index
     if params[:query_ship]
-      @occurrences = Occurrence.search_by_ship(params[:query_ship])
+      @occurrences = Occurrence.search_by_ship(params[:query_ship]).reorder('occurrences.date DESC')
     else
       @occurrences = Occurrence.all.order('occurrences.date DESC')
     end
