@@ -1,5 +1,14 @@
-<h2 class="text-center"><i class="fas fa-check-circle"></i>
-Escolha uma opção</h2>
+<h2 class="text-center dropdown-toggle"><i class="fas fa-check-circle"></i>Escolha uma opção</h2>
+
+<div class="dropdown text-center">
+  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2 class="text-center"><i class="fas fa-check-circle"></i>Escolha uma opção</h2></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+      <button class="dropdown-item"><%=link_to "Ocorrências", occurrences_path%></button>
+      <button class="dropdown-item"><%=link_to "Embarcações", ships_path%></button>
+      <button class="dropdown-item"><%=link_to "Tripulantes", members_path%></button>
+    </ul>
+</div>
+
 <div>
 <div class="buttons text-center pt-2">
   <div class="button pt-4">
