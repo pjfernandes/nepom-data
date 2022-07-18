@@ -13,7 +13,9 @@
                 <a class="dropdown-item">Ocorrências</a>
                 <ul class="dropdown-submenu-right">
                   <%=link_to "Pesquisar Ocorrência", occurrences_path, class: "dropdown-item"%>
-                  <%=link_to "Criar Ocorrência", new_user_occurrence_path(current_user), class: "dropdown-item"%>
+                  <% if user_signed_in? %>
+                    <%=link_to "Criar Ocorrência", new_user_occurrence_path(current_user), class: "dropdown-item"%>
+                  <% end %>
                 </ul>
                 <a class="dropdown-item">Embarcações</a>
                 <ul class="dropdown-submenu-right">

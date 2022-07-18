@@ -14,7 +14,11 @@
   <body>
     <%= render 'shared/navbar' %>
     <div class="container pt-4">
-      <%= yield %>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <%= yield %>
+        </div>
+      </div>
       <%= render 'shared/footer' %>
       <%= render 'shared/flashes' %>
     </div>
