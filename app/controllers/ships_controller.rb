@@ -10,7 +10,7 @@ class ShipsController < ApplicationController
     if params[:query]
       @ships = Ship.search_by_ship(params[:query]).reorder('ships.name ASC')
     else
-      @ships = Ship.all.order('ships.name ASC')
+      @ships = Ship.last(10)
     end
   end
 

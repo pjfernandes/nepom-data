@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i> Lista de tripulantes</h2>
+<h2 class="text-center"><i class="fas fa-anchor"></i> Buscar Tripulante</h2>
 
 <%# <% @members.each do |member| %>
   <%# <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
@@ -8,7 +8,7 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Insira nome"
+    placeholder: "Insira nome, CPF ou n° documento"
   %>
   <div class="text-center p-4">
     <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg mb-2 mr-2" %>
