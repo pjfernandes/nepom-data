@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i> Buscar Tripulante</h2>
+<h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Buscar Tripulante</h2>
 
 <%# <% @members.each do |member| %>
   <%# <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
@@ -11,9 +11,9 @@
     placeholder: "Insira nome, CPF ou n° documento"
   %>
   <div class="text-center p-4">
-    <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg mb-2 mr-2" %>
-    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg mb-2 mr-2" %>
-    <%=link_to "Novo", new_member_path, class: "btn btn-success btn-lg mb-2"%>
+    <%= submit_tag "Pesquisar", class: "btn btn-primary mb-2 mr-2" %>
+    <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mb-2 mr-2" %>
+    <%=link_to "Novo", new_member_path, class: "btn btn-success mb-2"%>
   </div>
 <% end %>
 

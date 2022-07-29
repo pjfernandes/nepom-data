@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
-    resources :occurrences, only: %i[new create]
+    resources :occurrences, only: %i[new create edit]
   end
-  resources :occurrences, only: %i[index show]
+  resources :occurrences, only: %i[index show edit]
 
   resources :members do
     member do

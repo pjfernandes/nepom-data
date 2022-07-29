@@ -39,6 +39,16 @@ class OccurrencesController < ApplicationController
     end
   end
 
+  def edit
+    @occurrence = Occurrence.find(params[:id])
+  end
+
+  def update
+    @occurrence = Occurrence.find(params[:id])
+    @occurrence.update(occurrence_params)
+    redirect_to occurence_path(@occurence)
+  end
+
   private
 
   def get_user
