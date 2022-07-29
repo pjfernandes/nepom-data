@@ -1,9 +1,14 @@
 class ShipsController < ApplicationController
 
   def index
-    if params[:query].present?
-      sql_query = "name ILIKE :query OR registration ILIKE :query"
-      @ships = Ship.where(sql_query, query: "%#{params[:query]}%")
+    # if params[:query].present?
+    #   sql_query = "name ILIKE :query OR registration ILIKE :query"
+    #   @ships = Ship.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @ships = Ship.last(10)
+    # end
+    if params[:query]
+      @ships = Ship.search_by_ship(params[:query]).reorder('ships.name ASC')
     else
       @ships = Ship.last(10)
     end

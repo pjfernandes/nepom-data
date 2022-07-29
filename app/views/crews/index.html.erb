@@ -1,8 +1,8 @@
 <%# Index de tripulantes por embarcação %>
 
-<% if @ship_id != nil %>
+<% if @ship %>
 
-  <h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship_id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship.id).name  %></h2>
 
   <%= form_tag ship_crews_path, method: :get do %>
     Nome:
@@ -57,9 +57,9 @@
 <%# -------------------------------------- %>
 <%# Index de embarcações por tripulante %>
 
-<% if @member_id != nil %>
+<% if @member %>
 
-  <h2 class="text-center"><i class="fas fa-anchor"></i> Embarcações do Tripulante: <%= Member.find(@member_id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor"></i> Embarcações do Tripulante: <%= Member.find(@member.id).name  %></h2>
 
   <%= form_tag member_crews_path, method: :get do %>
     Nome:
