@@ -19,11 +19,6 @@
         selected: params[:selected_member_id]
       %>
 
-      <br>
-
-
-
-
       <%# <%= f.label :'Embarcação'%>
       <br>
       <% @crew.ship_id = @ship.id %>
@@ -57,7 +52,6 @@
   <% end %>
 
   <br>
-  <br>
 
 
   <div class="mt-4">
@@ -65,11 +59,19 @@
     <%= f.input :date_fin, as: :date, label: "Data Final" %>
     <%= f.input :role, label: "Função" %>
     <%= f.button :submit, "Salvar", class: "btn btn-primary mr-2 text-center" %>
-     <%=link_to 'Voltar', :back, class: "btn btn-secondary text-center" %>
+     <%=link_to 'Voltar', :back, class: "btn btn-info text-center" %>
     <br>
     <% if @ship != nil %>
-      <%= link_to 'Criar tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-info text-center mt-4" %>
+      <%= link_to 'Criar tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-primary text-center mt-4" %>
     <%end%>
 
   </div>
 <% end %>
+
+<style>
+#crew_member_id {
+  padding: 6px 12px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+</style>

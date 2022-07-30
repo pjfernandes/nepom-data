@@ -2,7 +2,7 @@
 
 <% if @ship %>
 
-  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i>Tripulantes da Embarcação: <%= Ship.find(@ship.id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i>Tripulantes da Embarcação: <span class="text-info"><%= Ship.find(@ship.id).name %></h2></span>
 
   <%= form_tag ship_crews_path, method: :get do %>
     Nome:
@@ -59,7 +59,7 @@
 
 <% if @member %>
 
-  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Embarcações do Tripulante: <%= Member.find(@member.id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Embarcações do Tripulante: <span class="text-info"><%= Member.find(@member.id).name %></span></h2>
 
   <%= form_tag member_crews_path, method: :get do %>
     Nome:
