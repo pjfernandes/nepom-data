@@ -1,10 +1,6 @@
 {
   "name": "base_de_dados_nepom",
   "private": true,
-  "engines": {
-    "node": "12.16.2",
-    "yarn": "1.22.4"
-  },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.7.4",
     "@rails/actioncable": "^6.0.0",
