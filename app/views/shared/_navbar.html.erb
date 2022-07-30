@@ -3,41 +3,14 @@
   <div class="logo d-flex justify-content-between">
     <div class="xepa text-left d-flex align-items-center">
      <a href="<%=root_path%>"><%= image_tag "logo_pf.svg",size:70%></a>
-     <h5 class="app-name"><strong> NEPOM Dados</strong></h5>
+     <a href="<%=root_path%>" style="color: black; text-decoration: none;"><h5 class="app-name"><strong> NEPOM Dados</strong></h5></a>
     </div>
-    <div class="collapse navbar-collapse ml-2" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown active d-flex justify-content-center">
-          <a id="navbarDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item">Ocorrências</a>
-                <ul class="dropdown-submenu-right">
-                  <%=link_to "Pesquisar Ocorrência", occurrences_path, class: "dropdown-item"%>
-                  <% if user_signed_in? %>
-                    <%=link_to "Criar Ocorrência", new_user_occurrence_path(current_user), class: "dropdown-item"%>
-                  <% end %>
-                </ul>
-                <a class="dropdown-item">Embarcações</a>
-                <ul class="dropdown-submenu-right">
-                  <%=link_to "Pesquisar Embarcação", ships_path, class: "dropdown-item"%>
-                  <%=link_to "Criar Embarcação", new_ship_path, class: "dropdown-item"%>
-                </ul>
-                <a class="dropdown-item">Tripulantes</a>
-                <ul class="dropdown-submenu-right">
-                  <%=link_to "Pesquisar Tripulante", members_path, class: "dropdown-item"%>
-                  <%=link_to "Criar Tripulante", new_member_path, class: "dropdown-item"%>
-                </ul>
-                <%=link_to "Relatórios", members_path, class: "dropdown-item"%>
-            </div>
-        </li>
-      </ul>
-  </div>
+
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,7 +24,27 @@
           <%= image_tag "user_icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Meu perfil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+            <a class="dropdown-item font-weight-bold"><i class="fas fa-paste text-secondary"></i> Ocorrências</a>
+            <ul class="dropdown-submenu-right">
+              <%=link_to "Pesquisar ocorrência", occurrences_path, class: "dropdown-item"%>
+              <% if user_signed_in? %>
+                <%=link_to "Criar ocorrência", new_user_occurrence_path(current_user), class: "dropdown-item"%>
+              <% end %>
+            </ul>
+            <a class="dropdown-item font-weight-bold"><i class="fas fa-ship text-secondary"></i> Embarcações</a>
+              <ul class="dropdown-submenu-right">
+                <%=link_to "Pesquisar embarcação", ships_path, class: "dropdown-item"%>
+                <%=link_to "Criar embarcação", new_ship_path, class: "dropdown-item"%>
+              </ul>
+            <a class="dropdown-item font-weight-bold"><i class="fas fa-anchor text-secondary"></i> Tripulantes</a>
+              <ul class="dropdown-submenu-right">
+                <%=link_to "Pesquisar tripulante", members_path, class: "dropdown-item"%>
+                <%=link_to "Criar tripulante", new_member_path, class: "dropdown-item"%>
+              </ul>
+            <%=link_to "Relatórios", members_path, class: "dropdown-item"%>
+
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
           </div>
         </li>
       <% else %>
@@ -62,3 +55,13 @@
     </ul>
   </div>
 </div>
+
+<style>
+  .avatar:hover {
+    border: solid 1px orange;
+  }
+
+  .avatar:active {
+    border: solid 1px red;
+  }
+</style>
