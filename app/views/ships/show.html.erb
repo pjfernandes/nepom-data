@@ -23,7 +23,7 @@
 <div class="text-center">
 
   <div class="pb-3">
-    <%=link_to "Criar tripulação", new_ship_crew_path(@ship), class: "btn btn-info"%>
+    <%=link_to "Criar tripulação", new_ship_crew_path(@ship), class: "btn btn-primary"%>
   </div>
 
   <div class="pb-3">
@@ -32,8 +32,8 @@
 
   <div>
 
-  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-warning mr-2"%>
-  <%=link_to "Voltar", ships_path, class: "btn btn-secondary mr-2"%>
+  <%=link_to "Editar", edit_ship_path(@ship), class: "btn btn-danger mr-2"%>
+  <%=link_to "Voltar", ships_path, class: "btn btn-info mr-2"%>
   </div>
   <%#=link_to "Excluir", ship_path(@ship), method: :delete, data: { confirm: "Confirma a exclusão?" }, class: "btn btn-danger m-4"%>
 </div>
