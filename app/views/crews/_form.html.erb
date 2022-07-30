@@ -8,7 +8,7 @@
       <br>
 
   <% if @ship != nil %>
-  <h2 class="text-center"><i class="fas fa-anchor"></i> Criar tripulação</h2>
+  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Criar tripulação</h2>
       <%= f.label :'Tripulante'%>
       <br>
       <%= f.collection_select :member_id,
@@ -64,11 +64,11 @@
     <%= f.input :date_ini, as: :date, label: "Data Inicial" %>
     <%= f.input :date_fin, as: :date, label: "Data Final" %>
     <%= f.input :role, label: "Função" %>
-    <%= f.button :submit, "Salvar", class: "btn btn-primary btn-lg mr-2 text-center" %>
-     <%=link_to 'Voltar', :back, class: "btn btn-warning btn-lg text-center" %>
+    <%= f.button :submit, "Salvar", class: "btn btn-primary mr-2 text-center" %>
+     <%=link_to 'Voltar', :back, class: "btn btn-secondary text-center" %>
     <br>
     <% if @ship != nil %>
-      <%= link_to 'Criar Tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-success btn-lg text-center mt-4" %>
+      <%= link_to 'Criar tripulante', new_member_path(ship_id: @ship.id), class: "btn btn-info text-center mt-4" %>
     <%end%>
 
   </div>

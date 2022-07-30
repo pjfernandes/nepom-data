@@ -27,7 +27,7 @@ function buildMapNewPoint() {
     coords = [-43, -22];
   }
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoicGpmZXJuYW5kZXMiLCJhIjoiY2t1c291Z3lzNWg2bzJvbW5kNWNhbnZhaCJ9.eYxvagOUGuS5qDo-zOfRCA';
+ mapboxgl.accessToken = 'pk.eyJ1IjoicGpmZXJuYW5kZXMiLCJhIjoiY2t1c291Z3lzNWg2bzJvbW5kNWNhbnZhaCJ9.eYxvagOUGuS5qDo-zOfRCA';
 
   if (document.getElementById("new_point") || document.getElementById("map-new-point")) {
     let map = new mapboxgl.Map({
@@ -51,6 +51,10 @@ function buildMapNewPoint() {
       document.getElementById("occurrence_longitude").value = coordinates.lng;
       document.getElementById("occurrence_latitude").value = coordinates.lat;
       marker.remove().setLngLat(coordinates).addTo(map);
+      var position = document.getElementById("position");
+      position.innerHTML = '';
+      position.insertAdjacentHTML('beforeend', `<p class="text-info"><i class="fas fa-map-marker-alt"></i> ${coordinates.lat.toFixed(3)}°, ${coordinates.lng.toFixed(3)}°</p>`);
+
     }
 
     map.on('click', add_marker);

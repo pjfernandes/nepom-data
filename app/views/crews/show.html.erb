@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor"></i> Tripulação <%= @crew.id %></h2>
+<h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Tripulação <%= @crew.id %></h2>
 
 <div class="card p-4 mb-3 mt-3">
   <div class="text-dark">
@@ -31,13 +31,13 @@
 </div>
 
 
-<%=link_to "Editar", edit_crew_path, class: "btn btn-danger btn-lg mr-2" %>
-<%=link_to "Voltar", :back, class: "btn btn-warning btn-lg" %>
+<%=link_to "Editar", edit_crew_path, class: "btn btn-warning mr-2" %>
+<%=link_to "Voltar", :back, class: "btn btn-secondary" %>
 <%#= link_to "Deletar", member_crew_path(@crew), method: :delete, data: { confirm: "Está certo disso?" }, class: "btn btn-success m-4" %>
 
 <% if params[:member_id] != nil %>
-  <%= link_to "Lista de Tripulações do Tripulante", member_crews_path, class: "btn btn-primary btn-lg mr-2" %>
+  <%= link_to "Lista de tripulações do Tripulante", member_crews_path, class: "btn btn-primary mr-2" %>
 <% end  %>
 <% if params[:ship_id] != nil %>
-  <%= link_to "Lista de Tripulações da Embarcação", ship_crews_path, class: "btn btn-primary btn-lg mr-2" %>
+  <%= link_to "Lista de tripulações da Embarcação", ship_crews_path, class: "btn btn-primary mr-2" %>
 <% end  %>

@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Buscar Tripulante</h2>
+<h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Buscar tripulante</h2>
 
 <%# <% @members.each do |member| %>
   <%# <%=link_to "#{member.name}", member_path(member), class: "btn-primary m-4"%>
@@ -13,7 +13,7 @@
   <div class="text-center p-4">
     <%= submit_tag "Pesquisar", class: "btn btn-primary mb-2 mr-2" %>
     <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mb-2 mr-2" %>
-    <%=link_to "Novo", new_member_path, class: "btn btn-success mb-2"%>
+    <%=link_to "Novo", new_member_path, class: "btn btn-info mb-2"%>
   </div>
 <% end %>
 
@@ -22,8 +22,8 @@
     <div class="col-12 col-lg-6">
       <% @members.each do |member| %>
         <div class="card p-3 mb-3 text-dark">
-          <h4><strong>#</strong><%= member.name %></h4>
-          <%=link_to "Detalhes", member_path(member), class: "btn btn-primary btn-lg m-4"%>
+          <h4><strong class="text-secondary">#</strong><%= member.name %></h4>
+          <%=link_to "Detalhes", member_path(member), class: "btn btn-primary m-4"%>
         </div>
       <% end %>
     </div>

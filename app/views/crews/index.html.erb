@@ -2,7 +2,7 @@
 
 <% if @ship %>
 
-  <h2 class="text-center"><i class="fas fa-anchor"></i>Tripulantes da Embarcação: <%= Ship.find(@ship.id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i>Tripulantes da Embarcação: <%= Ship.find(@ship.id).name  %></h2>
 
   <%= form_tag ship_crews_path, method: :get do %>
     Nome:
@@ -25,10 +25,10 @@
     %>
 
     <div class="text-center p-4">
-      <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg mt-2 mr-2" %>
-      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg mt-2 mr-2" %>
-      <%= link_to "Voltar", :back, class:"cancel-button btn btn-warning btn-lg mt-2" %>
-      <%#=link_to "Novo", new_ship_path, class: "btn btn-primary btn-lg"%>
+      <%= submit_tag "Pesquisar", class: "btn btn-primary mt-2 mr-2" %>
+      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mt-2 mr-2" %>
+      <%= link_to "Voltar", :back, class:"cancel-button btn btn-secondary mt-2" %>
+      <%#=link_to "Novo", new_ship_path, class: "btn btn-primary %>
     </div>
 
   <% end %>
@@ -45,7 +45,7 @@
             <p><strong>Fim: </strong><%= crew.date_fin.strftime("%d/%m/%Y")%></p>
             <p><strong>Função: </strong><%= crew.role %></p>
             </div>
-            <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary btn-lg m-4"%>
+            <%=link_to "Detalhes", member_path(Member.find(crew.member_id)), class: "btn btn-primary m-4"%>
           </div>
         <% end %>
       </div>
@@ -59,7 +59,7 @@
 
 <% if @member %>
 
-  <h2 class="text-center"><i class="fas fa-anchor"></i> Embarcações do Tripulante: <%= Member.find(@member.id).name  %></h2>
+  <h2 class="text-center"><i class="fas fa-anchor text-secondary"></i> Embarcações do Tripulante: <%= Member.find(@member.id).name  %></h2>
 
   <%= form_tag member_crews_path, method: :get do %>
     Nome:
@@ -82,9 +82,9 @@
     %>
 
     <div class="text-center p-4">
-      <%= submit_tag "Pesquisar", class: "btn btn-primary btn-lg mt-2 mr-2" %>
-      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary btn-lg mt-2 mr-2" %>
-      <%= link_to "Voltar", :back, class:"cancel-button btn btn-warning btn-lg mt-2" %>
+      <%= submit_tag "Pesquisar", class: "btn btn-primary mt-2 mr-2" %>
+      <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mt-2 mr-2" %>
+      <%= link_to "Voltar", :back, class:"cancel-button btn btn-secondary mt-2" %>
       <%#=link_to "Novo", new_member_path, class: "btn btn-primary btn-lg"%>
     </div>
 
@@ -101,9 +101,11 @@
             <p><strong>Porto de Registro: </strong><%= Ship.find(crew.ship_id).registration_port %></p>
             <p><strong>Início: </strong><%= crew.date_ini.strftime("%d/%m/%Y")%></p>
             <p><strong>Fim: </strong><%= crew.date_fin.strftime("%d/%m/%Y") %></p>
-            <p><strong>Função: </strong><%= crew.role %></p>
+            <% if !crew.role.nil?%>
+              <p><strong>Função: </strong><%= crew.role %></p>
+            <% end %>
             </div>
-            <%=link_to "Detalhes", ship_path(Ship.find(crew.ship_id)), class: "btn btn-primary btn-lg m-4"%>
+            <%=link_to "Detalhes", ship_path(Ship.find(crew.ship_id)), class: "btn btn-primary m-4"%>
           </div>
         <% end %>
       </div>

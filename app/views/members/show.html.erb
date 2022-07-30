@@ -32,11 +32,11 @@
 
 <div class="text-center">
   <div class="p-4">
-    <%=link_to "Lista de Embarcações do Tripulante", member_crews_path(@member), class: "btn btn-primary btn-lg"%>
+    <%=link_to "Lista de embarcações do tripulante", member_crews_path(@member), class: "btn btn-primary"%>
   </div>
   <div>
-    <%=link_to "Editar", edit_member_path(@member), class: "btn btn-danger btn-lg mr-2"%>
+    <%=link_to "Editar", edit_member_path(@member), class: "btn btn-warning mr-2"%>
     <%#= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Está certo disso?" }, class: "btn btn-success m-4" %>
-    <%=link_to "Voltar", members_path, class: "btn btn-warning btn-lg ml-2"%>
+    <%=link_to "Voltar", members_path, class: "btn btn-secondary ml-2"%>
   </div>
 </div>

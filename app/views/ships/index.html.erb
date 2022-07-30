@@ -12,7 +12,7 @@
     <div class="text-center p-4">
       <%= submit_tag "Pesquisar", class: "btn btn-primary mr-2 mb-2" %>
       <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mb-2 mr-2" %>
-      <%=link_to "Novo", new_ship_path, class: "btn btn-success mr-2 mb-2"%>
+      <%=link_to "Novo", new_ship_path, class: "btn btn-info mr-2 mb-2"%>
     </div>
    <% end %>
 
@@ -23,10 +23,10 @@
       <% @ships.each do |ship| %>
         <div class="card p-3 mb-3">
           <div class="d-flex justify-content-between text-dark">
-          <h4><strong>#</strong><%= ship.name %></h4>
-          <h4><strong>N° </strong><%= ship.registration %></h4>
+          <h4><strong class="text-secondary">#</strong><%= ship.name %></h4>
+          <h4><strong class="text-secondary">n° </strong><%= ship.registration %></h4>
           </div>
-          <%=link_to "Detalhes", ship_path(ship), class: "btn btn-primary btn-lg m-4"%>
+          <%=link_to "Detalhes", ship_path(ship), class: "btn btn-primary m-4"%>
         </div>
       <% end %>
     </div>

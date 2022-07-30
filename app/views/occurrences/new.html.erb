@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-map-marker-alt secondary"></i> Criar ocorrência</h2>
+<h2 class="text-center"><i class="fas fa-map-marker-alt text-secondary"></i> Criar ocorrência</h2>
 <p id="position" class="text-center"></p>
 
 <%= simple_form_for [current_user, @occurrence] do |f| %>
@@ -10,6 +10,6 @@
     <%=f.input :ship_destination, label: 'Destino', placeholder: 'Destino'%>
     <%=f.input :description, label: 'Descrição', as: :text %>
   </div>
-  <%= f.button :submit, "Criar ocorrência", class:"btn btn-success btn-lg mb-2 pr-4 pl-4 mr-2" %>
-  <%= link_to "Voltar", :back, class:"btn btn-warning btn-lg mb-2" %>
+  <%= f.button :submit, "Criar ocorrência", class:"btn btn-primary mb-2 pr-4 pl-4 mr-2" %>
+  <%= link_to "Voltar", :back, class:"btn btn-secondary mb-2" %>
 <% end %>

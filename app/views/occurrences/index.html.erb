@@ -10,7 +10,7 @@
      <div class="text-center p-4">
       <%= submit_tag "Pesquisar", class: "btn btn-primary mr-2 mb-2" %>
       <%= link_to "Limpar Pesquisa", request.path, class:"cancel-button btn btn-primary mb-2 mr-2" %>
-      <%= link_to 'Criar corrência', new_user_occurrence_path(current_user), class:"btn btn-success mr-2 mb-2" %>
+      <%= link_to 'Criar corrência', new_user_occurrence_path(current_user), class:"btn btn-info mr-2 mb-2" %>
     </div>
 <% end %>
 
@@ -21,10 +21,10 @@
 
 <div class="text-center p-4">
   <%# <%= link_to 'Criar ocorrência', new_user_occurrence_path(current_user), class:"btn btn-primary btn-lg mt-2 mb-2" %>
-  <%= link_to 'Voltar', :back, class:"btn btn-warning btn-lg mt-2 ml-2 mb-2" %>
+  <%= link_to 'Voltar', :back, class:"btn btn-secondary mt-2 ml-2 mb-2" %>
 </div>
 
-<h3 class="text-center pb-2 mb-3"><i class="fas fa-paste"></i> Últimas Ocorrências</h3>
+<h3 class="text-center pb-2 mb-3"><i class="fas fa-paste text-secondary"></i> Últimas Ocorrências</h3>
 
 <div class="container">
   <div class="row d-flex justify-content-center">
@@ -32,7 +32,7 @@
       <% @occurrences.each do |occurrence| %>
         <div class="card p-3 mb-3">
           <div class="d-flex justify-content-between text-dark">
-            <h5> <strong>#</strong><%=occurrence.ship.name%> </h5>
+            <h5> <strong class="text-secondary">#</strong><%=occurrence.ship.name%> </h5>
             <h5> <strong><%= occurrence.date.strftime("%d/%m/%Y")%></strong></h5>
           </div>
           <%=link_to "Detalhes", occurrence_path(occurrence), class: "btn btn-primary m-2"%>
