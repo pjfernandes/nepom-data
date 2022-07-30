@@ -53,7 +53,7 @@ function buildMapNewPoint() {
       marker.remove().setLngLat(coordinates).addTo(map);
       var position = document.getElementById("position");
       position.innerHTML = '';
-      position.insertAdjacentHTML('beforeend', `<p class="text-info"><i class="fas fa-map-marker-alt"></i> ${coordinates.lat.toFixed(3)}°, ${coordinates.lng.toFixed(3)}°</p>`);
+      position.insertAdjacentHTML('beforeend', `<p class="text-info"><i class="fa fa-globe text-secondary"></i> ${coordinates.lat.toFixed(3)}°, ${coordinates.lng.toFixed(3)}°</p>`);
 
     }
 
