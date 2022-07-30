@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-user-plus"></i> Registre-se</h2>
+<h2 class="text-center"><i class="fas fa-user-plus text-secondary"></i> Registre-se</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -46,7 +46,7 @@
     </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Registrar", class:"btn btn-primary btn-lg mb-2" %>
+    <%= f.button :submit, "Registrar", class:"btn btn-primary mb-2" %>
   </div>
 <% end %>
 

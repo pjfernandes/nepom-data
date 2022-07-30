@@ -1,4 +1,4 @@
-<h2 class="text-center"><i class="fas fa-user"></i> Perfil de <%=current_user.name%></h2>
+<h3 class="text-center"><i class="fas fa-user text-secondary"></i> Perfil de <%=current_user.name%></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -20,15 +20,15 @@
                 input_html: { autocomplete: "new-password" },
                 label: "Confirme a nova senha"%>
     <%= f.input :current_password,
-                hint: "Precisamos da senha atual para confirmar suas alterações",
+                hint: "Coloque a senha atual",
                 required: true,
                 input_html: { autocomplete: "current-password" },
                 label: "Senha atual"%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Atualizar", class:"btn btn-primary btn-lg mb-2" %>
+    <%= f.button :submit, "Atualizar", class:"btn btn-primary mb-2" %>
   </div>
 <% end %>
 
-<%= link_to "Voltar", :back, class:"btn btn-danger btn-lg pl-6 pr-6 mb-2" %>
+<%= link_to "Voltar", :back, class:"btn btn-info pl-6 pr-6 mb-2" %>
