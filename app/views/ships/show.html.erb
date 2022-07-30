@@ -1,4 +1,4 @@
-<h1 class="text-center"><i class="fas fa-ship"></i> <%= @ship.name %></h1>
+<h1 class="text-center"><i class="fas fa-ship text-secondary"></i> <%= @ship.name %></h1>
 
 <div class="container-form text-center d-flex justify-content-center p-4">
 <div class="card">
@@ -23,11 +23,11 @@
 <div class="text-center">
 
   <div class="p-4">
-  <%=link_to "Criar Tripulação para esta Embarcação", new_ship_crew_path(@ship), class: "btn btn-success btn-lg"%>
+  <%=link_to "Criar tripulação", new_ship_crew_path(@ship), class: "btn btn-success btn-lg"%>
   </div>
 
   <div class="p-4">
-  <%=link_to "Lista de Tripulantes da Embarcação", ship_crews_path(@ship), class: "btn btn-primary btn-lg"%>
+  <%=link_to "Lista de tripulantes", ship_crews_path(@ship), class: "btn btn-primary btn-lg"%>
   </div>
 
   <div>

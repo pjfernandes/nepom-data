@@ -1,4 +1,4 @@
-<h1 class="text-center"><i class="fas fa-paste"></i> Ocorrência n° <%= @occurrence.id %></h1>
+<h1 class="text-center"><i class="fas fa-paste secondary"></i> Ocorrência n° <%= @occurrence.id %></h1>
 <div class="container-form text-center d-flex justify-content-center p-4">
 <div class="card">
   <%# <div class="form-login text-center mr-1"> %>
@@ -27,5 +27,6 @@
 </div>
 
 <div class="text-center">
+  <%=link_to "Editar", edit_occurrence_path, class: "btn btn-primary btn-lg mr-2"%>
   <%=link_to "Voltar", occurrences_path, class: "btn btn-warning btn-lg"%>
 </div>
