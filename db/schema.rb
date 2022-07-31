@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_29_224917) do
+ActiveRecord::Schema.define(version: 2021_11_08_192840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2022_07_29_224917) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "member_type"
   end
 
   create_table "occurrences", force: :cascade do |t|
@@ -69,11 +68,11 @@ ActiveRecord::Schema.define(version: 2022_07_29_224917) do
     t.string "ship_origin"
     t.string "ship_destination"
     t.string "type"
+    t.string "description"
     t.bigint "user_id", null: false
     t.bigint "ship_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "description"
     t.index ["ship_id"], name: "index_occurrences_on_ship_id"
     t.index ["user_id"], name: "index_occurrences_on_user_id"
   end
@@ -83,10 +82,10 @@ ActiveRecord::Schema.define(version: 2022_07_29_224917) do
     t.string "registration"
     t.string "registration_port"
     t.string "image"
+    t.string "application"
+    t.string "ship_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ship_type"
-    t.string "application"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_07_29_224917) do
     t.string "cpf"
     t.string "matricula"
     t.string "lotacao"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
