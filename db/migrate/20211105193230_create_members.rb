@@ -8,6 +8,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string :doc_number
       t.string :doc_type
       t.string :image
+      t.string :member_type
 
       t.timestamps
     end

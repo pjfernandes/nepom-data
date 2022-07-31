@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_11_08_192840) do
     t.string "doc_number"
     t.string "doc_type"
     t.string "image"
+    t.string "member_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
