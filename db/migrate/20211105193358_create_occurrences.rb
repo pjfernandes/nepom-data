@@ -8,6 +8,7 @@ class CreateOccurrences < ActiveRecord::Migration[6.0]
       t.string :ship_origin
       t.string :ship_destination
       t.string :type
+      t.string :description
       t.references :user, null: false, foreign_key: true
       t.references :ship, null: false, foreign_key: true
 
